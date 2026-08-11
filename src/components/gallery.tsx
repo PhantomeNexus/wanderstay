@@ -43,7 +43,9 @@ export function Gallery({ destination }: GalleryProps) {
             aria-label={"View photo: " + frame.caption}
             className={
               "overflow-hidden rounded-xl border-2 transition-colors " +
-              (index === active ? "border-accent" : "border-transparent hover:border-line-strong")
+              (index === active
+                ? "border-accent"
+                : "border-transparent opacity-80 hover:border-line-strong hover:opacity-100")
             }
           >
             <span className="block aspect-[4/3]">
