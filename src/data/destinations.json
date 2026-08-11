@@ -1,0 +1,963 @@
+[
+  {
+    "slug": "casa-oliveira",
+    "name": "Casa Oliveira",
+    "location": "Comporta, Portugal",
+    "region": "Atlantic Coast",
+    "tripType": "Coastal escape",
+    "tagline": "A whitewashed dune house ten minutes from an empty beach",
+    "summary": "Low, quiet and full of light, Casa Oliveira sits behind the pines with a long veranda facing the dunes.",
+    "description": [
+      "Casa Oliveira was built in 1974 as a fisherman's summer house and rebuilt, slowly, over four years. The bones are the same — thick lime-washed walls, a single-pitch roof, cane ceilings that keep the rooms cool through August.",
+      "Everything opens outward. The kitchen doors fold back onto a veranda shaded by an old fig tree, and the outdoor shower is the one most guests end up using. Mornings are for the beach, which is a ten minute walk through the pine break, and afternoons tend to collapse into the hammock.",
+      "The house sleeps six across three bedrooms, with a proper kitchen for people who actually cook. Comporta village is a short drive for bread, wine and the Saturday market."
+    ],
+    "pricePerNight": 284,
+    "cleaningFee": 65,
+    "serviceFeeRate": 0.11,
+    "rating": 4.92,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 2,
+    "maxGuests": 6,
+    "motif": "coast",
+    "palette": "sunlit",
+    "featured": true,
+    "highlights": [
+      "Ten minute walk to an unmarked stretch of beach",
+      "Outdoor shower and shaded veranda",
+      "Bicycles for four included"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Full kitchen with gas range",
+      "Outdoor shower",
+      "Private plunge pool",
+      "Air conditioning",
+      "Washing machine",
+      "Free parking on site",
+      "Bicycles included",
+      "Wood-burning stove",
+      "Beach towels and umbrellas"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 11:00 AM",
+      "No parties or events",
+      "Quiet hours after 11:00 PM",
+      "Pets welcome with advance notice"
+    ],
+    "gallery": [
+      { "caption": "The veranda at golden hour", "tone": "golden" },
+      { "caption": "Dune path down to the beach", "tone": "day" },
+      { "caption": "Kitchen doors folded back", "tone": "day" },
+      { "caption": "Plunge pool after sundown", "tone": "dusk" },
+      { "caption": "Pine break at first light", "tone": "mist" }
+    ],
+    "host": {
+      "name": "Inês Marques",
+      "since": "2019",
+      "responseTime": "within an hour",
+      "bio": "I grew up two villages over and rebuilt this house with my brother. I live nearby and will meet you at the door with the keys and a map of the beaches worth the drive."
+    },
+    "reviews": [
+      {
+        "author": "Daniel R.",
+        "date": "2026-06-18",
+        "rating": 5,
+        "text": "We stayed nine nights and never once felt like leaving. The house is cooler than it has any right to be in June, and the beach really is empty. Inês left us figs from the tree by the veranda."
+      },
+      {
+        "author": "Marta K.",
+        "date": "2026-05-02",
+        "rating": 5,
+        "text": "Beautifully restored without being precious about it. The kitchen is properly equipped — we cooked every night. Bikes were a nice touch for getting into the village."
+      },
+      {
+        "author": "Tom H.",
+        "date": "2026-03-27",
+        "rating": 4,
+        "text": "Lovely house, genuinely quiet. Only note is that the road in is sand for the last stretch, so a low car will struggle. Otherwise faultless."
+      }
+    ]
+  },
+  {
+    "slug": "villa-serrano",
+    "name": "Villa Serrano",
+    "location": "Val d'Orcia, Italy",
+    "region": "Mediterranean",
+    "tripType": "Design stay",
+    "tagline": "A restored stone farmhouse with a pool cut into the hillside",
+    "summary": "Sixteenth-century walls, a spare modern interior, and forty kilometres of Tuscan valley out of every window.",
+    "description": [
+      "Villa Serrano sits at the top of a cypress-lined track with nothing above it but sky. The building is sixteenth century; the interior is not. Concrete floors, plaster walls, oak and steel, and almost no furniture that isn't load-bearing.",
+      "The pool is cut into the terrace below the house and faces west, which means the last hour of light lands directly on the water. There is an outdoor kitchen under the loggia and a long table that seats twelve.",
+      "Pienza is twenty minutes away, Montalcino thirty. Most guests do one of them per day and spend the rest of the time doing very little, which is the correct approach."
+    ],
+    "pricePerNight": 412,
+    "cleaningFee": 95,
+    "serviceFeeRate": 0.11,
+    "rating": 4.96,
+    "bedrooms": 4,
+    "beds": 6,
+    "baths": 3,
+    "maxGuests": 8,
+    "motif": "vines",
+    "palette": "ember",
+    "featured": true,
+    "highlights": [
+      "Infinity pool facing the western valley",
+      "Outdoor kitchen and twelve-seat table",
+      "Twenty minutes from Pienza"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Heated infinity pool",
+      "Outdoor kitchen and pizza oven",
+      "Air conditioning",
+      "Full kitchen with gas range",
+      "Washing machine and dryer",
+      "Free parking on site",
+      "Wood-burning fireplace",
+      "Espresso machine",
+      "Weekly housekeeping included"
+    ],
+    "houseRules": [
+      "Check-in from 4:00 PM, check-out by 10:00 AM",
+      "No parties or events",
+      "Quiet hours after 11:00 PM",
+      "No smoking anywhere on the property"
+    ],
+    "gallery": [
+      { "caption": "The pool terrace looking west", "tone": "golden" },
+      { "caption": "Cypress track up to the house", "tone": "day" },
+      { "caption": "The loggia and long table", "tone": "golden" },
+      { "caption": "Valley fog below the terrace", "tone": "mist" },
+      { "caption": "The main room at dusk", "tone": "dusk" }
+    ],
+    "host": {
+      "name": "Giulia Ferrara",
+      "since": "2017",
+      "responseTime": "within two hours",
+      "bio": "I restored Serrano with an architect from Siena over five years. I handle the bookings myself and can arrange a cook, a driver or a table at places that do not answer their phones."
+    },
+    "reviews": [
+      {
+        "author": "Anna S.",
+        "date": "2026-07-04",
+        "rating": 5,
+        "text": "One of the most beautiful houses I have ever stayed in, and I say that as someone who is difficult about buildings. The proportions of the main room are extraordinary."
+      },
+      {
+        "author": "Peter L.",
+        "date": "2026-06-11",
+        "rating": 5,
+        "text": "Eight of us for a birthday week. The outdoor kitchen got used every single evening. Giulia arranged a cook for one night which was the highlight of the trip."
+      },
+      {
+        "author": "Chloé B.",
+        "date": "2026-04-30",
+        "rating": 5,
+        "text": "The pool at sunset is exactly as good as it looks. Bring a car you don't mind on gravel."
+      }
+    ]
+  },
+  {
+    "slug": "the-fjord-cabin",
+    "name": "The Fjord Cabin",
+    "location": "Aurland, Norway",
+    "region": "Northern Europe",
+    "tripType": "Off-grid",
+    "tagline": "One room, one window, nine hundred metres above the water",
+    "summary": "A timber cabin on a shelf of rock above the Aurlandsfjord, reachable by a single mountain road.",
+    "description": [
+      "The Fjord Cabin is small on purpose. One room, a sleeping loft, a wood stove and a window that takes up most of the western wall. Below it, the fjord drops away for nine hundred metres.",
+      "It runs on solar with a generator backup, and the water comes from a spring uphill. There is no television and the signal is unreliable, which is the point. Firewood is stacked under the eaves and there is always enough.",
+      "The road up from Aurland is open from May to October. Outside those months the cabin sits under several metres of snow and is not available. Bring proper boots — the walking here starts at the front door."
+    ],
+    "pricePerNight": 196,
+    "cleaningFee": 45,
+    "serviceFeeRate": 0.11,
+    "rating": 4.89,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "maxGuests": 3,
+    "motif": "peaks",
+    "palette": "fjord",
+    "featured": true,
+    "highlights": [
+      "Nine hundred metres directly above the fjord",
+      "Solar powered with a wood stove",
+      "Hiking trails from the doorstep"
+    ],
+    "amenities": [
+      "Wood-burning stove",
+      "Solar power with generator backup",
+      "Spring-fed water",
+      "Compact kitchen with two-ring hob",
+      "Firewood included",
+      "Free parking on site",
+      "Drying rack for wet gear",
+      "French press and stovetop kettle"
+    ],
+    "houseRules": [
+      "Check-in from 4:00 PM, check-out by 11:00 AM",
+      "Open from May through October only",
+      "Pack out everything you bring in",
+      "No open fires outside the stove"
+    ],
+    "gallery": [
+      { "caption": "The window wall above the fjord", "tone": "day" },
+      { "caption": "Cabin from the ridge path", "tone": "golden" },
+      { "caption": "Cloud sitting in the valley", "tone": "mist" },
+      { "caption": "The stove going at midnight", "tone": "night" },
+      { "caption": "Sun coming over the far wall", "tone": "dusk" }
+    ],
+    "host": {
+      "name": "Henrik Dahl",
+      "since": "2020",
+      "responseTime": "within a day",
+      "bio": "My grandfather built the original cabin here in 1961. I rebuilt it in 2019 and keep it stocked through the season. I send a route note and a weather read a few days before you arrive."
+    },
+    "reviews": [
+      {
+        "author": "Sofia N.",
+        "date": "2026-08-02",
+        "rating": 5,
+        "text": "I have been thinking about this cabin every week since. The window is not exaggerated in the photos. Woke up above the cloud line twice."
+      },
+      {
+        "author": "Erik J.",
+        "date": "2026-07-15",
+        "rating": 5,
+        "text": "Simple in the best way. Henrik's route note saved us a wrong turn on the mountain road. Bring more food than you think — there is nothing up there."
+      },
+      {
+        "author": "Rachel M.",
+        "date": "2026-06-23",
+        "rating": 4,
+        "text": "Extraordinary setting. Genuinely off-grid, so go in knowing the shower is short and the signal is nonexistent. We loved it, but it is not for everyone."
+      }
+    ]
+  },
+  {
+    "slug": "riad-nissa",
+    "name": "Riad Nissa",
+    "location": "Marrakech, Morocco",
+    "region": "North Africa",
+    "tripType": "City break",
+    "tagline": "A courtyard house buried three turns deep in the medina",
+    "summary": "Cool tadelakt rooms around an orange-tree courtyard, with a roof terrace over the rooftops of the old city.",
+    "description": [
+      "Riad Nissa is a nineteenth-century courtyard house on a derb too narrow for cars. You will not find it on the first attempt, and that is part of the pleasure. Inside, the noise of the medina drops away completely.",
+      "Four rooms open onto a courtyard with two orange trees and a small pool at its centre. The walls are hand-polished tadelakt in a dusty rose; the floors are original zellige. Breakfast is served on the roof terrace, which looks across the rooftops to the Atlas mountains on a clear morning.",
+      "Jemaa el-Fnaa is an eight minute walk. The souks start at the end of the lane. The house team can arrange a guide, a hammam or a car to the mountains."
+    ],
+    "pricePerNight": 168,
+    "cleaningFee": 40,
+    "serviceFeeRate": 0.11,
+    "rating": 4.84,
+    "bedrooms": 4,
+    "beds": 5,
+    "baths": 4,
+    "maxGuests": 8,
+    "motif": "dunes",
+    "palette": "saffron",
+    "featured": true,
+    "highlights": [
+      "Roof terrace with Atlas mountain views",
+      "Breakfast prepared daily and included",
+      "Eight minutes from Jemaa el-Fnaa"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Breakfast included daily",
+      "Courtyard plunge pool",
+      "Roof terrace",
+      "Air conditioning in every room",
+      "Daily housekeeping",
+      "Airport transfer on request",
+      "Hammam booking assistance",
+      "Mint tea on arrival"
+    ],
+    "houseRules": [
+      "Check-in from 2:00 PM, check-out by 11:00 AM",
+      "No parties or events",
+      "Shoes off in the courtyard",
+      "No smoking in the bedrooms"
+    ],
+    "gallery": [
+      { "caption": "The courtyard and orange trees", "tone": "day" },
+      { "caption": "Roof terrace before breakfast", "tone": "mist" },
+      { "caption": "Zellige floor in the main salon", "tone": "day" },
+      { "caption": "Lanterns lit in the courtyard", "tone": "night" },
+      { "caption": "Atlas mountains from the roof", "tone": "golden" }
+    ],
+    "host": {
+      "name": "Youssef Benali",
+      "since": "2016",
+      "responseTime": "within an hour",
+      "bio": "My family has run this house for three generations. Someone from the team is here around the clock, and we will always come to the end of the lane to meet you if the derb defeats you."
+    },
+    "reviews": [
+      {
+        "author": "Elena V.",
+        "date": "2026-05-19",
+        "rating": 5,
+        "text": "Stepping through the door out of the medina noise into that courtyard is a genuinely startling experience. Breakfast on the roof every morning was the best part of the trip."
+      },
+      {
+        "author": "James O.",
+        "date": "2026-04-08",
+        "rating": 5,
+        "text": "Youssef's team could not have been more helpful. They sorted a guide for the souks who was excellent and never once tried to steer us into a shop."
+      },
+      {
+        "author": "Nadia F.",
+        "date": "2026-02-21",
+        "rating": 4,
+        "text": "Beautiful house and lovely people. The rooms facing the courtyard do pick up sound in the early morning — ask for one of the upper rooms if you sleep lightly."
+      }
+    ]
+  },
+  {
+    "slug": "lofoten-boathouse",
+    "name": "Lofoten Boathouse",
+    "location": "Reine, Norway",
+    "region": "Northern Europe",
+    "tripType": "Coastal escape",
+    "tagline": "A red rorbu on stilts with the water directly underneath",
+    "summary": "A restored fisherman's cabin standing in the harbour at Reine, with granite peaks rising straight out of the sea behind it.",
+    "description": [
+      "The boathouse is a genuine rorbu — a nineteenth-century fisherman's cabin built out over the water on timber stilts. You can hear the harbour under the floor at night, which sounds worse than it is and is in fact the reason people come back.",
+      "Inside it is warm, dry and considerably more comfortable than its history suggests: underfloor heating, a proper kitchen, and a window seat facing the Reinefjorden. The peaks behind rise eight hundred metres almost vertically from the shoreline.",
+      "In winter the northern lights are visible from the deck on clear nights. In summer the sun does not set at all. There is no wrong time to come, only different ones."
+    ],
+    "pricePerNight": 232,
+    "cleaningFee": 55,
+    "serviceFeeRate": 0.11,
+    "rating": 4.91,
+    "bedrooms": 2,
+    "beds": 3,
+    "baths": 1,
+    "maxGuests": 5,
+    "motif": "islands",
+    "palette": "arctic",
+    "featured": true,
+    "highlights": [
+      "Built out over the harbour on original stilts",
+      "Northern lights visible from the deck",
+      "Underfloor heating throughout"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Underfloor heating",
+      "Full kitchen with gas range",
+      "Private deck over the water",
+      "Washing machine",
+      "Drying room for wet gear",
+      "Free parking on site",
+      "Rowing boat available",
+      "Wood-burning stove",
+      "Fishing rods included"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 11:00 AM",
+      "No parties or events",
+      "Children must be supervised on the deck",
+      "No smoking indoors"
+    ],
+    "gallery": [
+      { "caption": "The rorbu from the harbour wall", "tone": "day" },
+      { "caption": "Peaks behind Reine at midnight", "tone": "night" },
+      { "caption": "Window seat over the fjord", "tone": "golden" },
+      { "caption": "Harbour under low cloud", "tone": "mist" },
+      { "caption": "Deck facing the Reinefjorden", "tone": "dusk" }
+    ],
+    "host": {
+      "name": "Marit Solberg",
+      "since": "2018",
+      "responseTime": "within two hours",
+      "bio": "I run three rorbuer in Reine and grew up in the village. I will tell you honestly which hikes are worth it in the conditions you are getting, and which ones to skip."
+    },
+    "reviews": [
+      {
+        "author": "Thomas W.",
+        "date": "2026-03-14",
+        "rating": 5,
+        "text": "Saw the lights from the deck on our second night without leaving the cabin. Marit talked us out of one hike because of ice and she was completely right."
+      },
+      {
+        "author": "Priya S.",
+        "date": "2026-07-27",
+        "rating": 5,
+        "text": "Midnight sun in July is disorienting and wonderful. Blackout curtains are excellent, which matters more than you'd think."
+      },
+      {
+        "author": "Lars B.",
+        "date": "2026-01-30",
+        "rating": 5,
+        "text": "Warmer than expected in January. The drying room is a small thing that makes a big difference when everything you own is wet."
+      }
+    ]
+  },
+  {
+    "slug": "chalet-aiguille",
+    "name": "Chalet Aiguille",
+    "location": "Verbier, Switzerland",
+    "region": "Alpine",
+    "tripType": "Mountain retreat",
+    "tagline": "Ski-in access, a sunken firepit and eleven metres of south-facing glass",
+    "summary": "A contemporary chalet above the Verbier treeline, with direct piste access and the Combins across the valley.",
+    "description": [
+      "Chalet Aiguille was finished in 2021 and sits at 1,680 metres with the piste running past the ski room door. The south face is almost entirely glass, which in February means the main room heats itself by ten in the morning.",
+      "There are five bedrooms, all with their own bathrooms, and a lower floor given over to a sauna, a hot tub on the deck and a boot room that actually dries things. The sunken firepit outside stays usable well below freezing.",
+      "In summer the same terrain turns into some of the best riding in the Valais, and the chalet is considerably cheaper. Médran is a four minute drive or a fifteen minute walk downhill."
+    ],
+    "pricePerNight": 520,
+    "cleaningFee": 140,
+    "serviceFeeRate": 0.11,
+    "rating": 4.94,
+    "bedrooms": 5,
+    "beds": 7,
+    "baths": 5,
+    "maxGuests": 10,
+    "motif": "peaks",
+    "palette": "alpine",
+    "featured": true,
+    "highlights": [
+      "Ski-in access directly from the piste",
+      "Sauna, hot tub and heated boot room",
+      "Sunken firepit on the south terrace"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Private sauna",
+      "Outdoor hot tub",
+      "Heated boot and ski room",
+      "Full kitchen with induction range",
+      "Wood-burning fireplace",
+      "Washing machine and dryer",
+      "Free parking for three cars",
+      "Underfloor heating",
+      "Weekly housekeeping included",
+      "Espresso machine"
+    ],
+    "houseRules": [
+      "Check-in from 4:00 PM, check-out by 10:00 AM",
+      "No parties or events",
+      "Quiet hours after 10:00 PM",
+      "No smoking anywhere on the property"
+    ],
+    "gallery": [
+      { "caption": "South terrace and the Combins", "tone": "day" },
+      { "caption": "Main room in morning sun", "tone": "golden" },
+      { "caption": "Firepit after the last run", "tone": "dusk" },
+      { "caption": "Hot tub under clear sky", "tone": "night" },
+      { "caption": "Chalet from the piste above", "tone": "mist" }
+    ],
+    "host": {
+      "name": "Claude Rey",
+      "since": "2021",
+      "responseTime": "within an hour",
+      "bio": "I manage four properties in Verbier and live in the village year round. I can arrange instructors, guides, a chef or lift passes before you arrive so nothing eats into your first morning."
+    },
+    "reviews": [
+      {
+        "author": "Michael T.",
+        "date": "2026-02-16",
+        "rating": 5,
+        "text": "Ten of us for a week in February. Ski-in access is real, not marketing — you click out at the door. Boot room dried everything overnight, every night."
+      },
+      {
+        "author": "Sofia N.",
+        "date": "2026-01-11",
+        "rating": 5,
+        "text": "The glass is the whole point. Sitting inside in a t-shirt watching snow come down is a strange and excellent feeling. Claude sorted passes before we landed."
+      },
+      {
+        "author": "Georgia P.",
+        "date": "2026-07-09",
+        "rating": 5,
+        "text": "Came in summer for the riding and had the place for half the winter rate. Trails from the door, sauna afterwards. Would do it again in a heartbeat."
+      }
+    ]
+  },
+  {
+    "slug": "the-glass-hide",
+    "name": "The Glass Hide",
+    "location": "Cairngorms, Scotland",
+    "region": "Northern Europe",
+    "tripType": "Off-grid",
+    "tagline": "A mirrored cabin in eighty acres of regenerating pine forest",
+    "summary": "A single-room hide clad in mirrored glass, dropped into Caledonian pine woodland with no neighbours in any direction.",
+    "description": [
+      "The Glass Hide disappears. Clad on three sides in mirrored glass, it reflects the pine and heather around it so completely that guests routinely walk past it on the approach path. The fourth wall is clear, and faces a clearing where deer come through at dusk.",
+      "Inside there is a bed, a wood stove, a compact kitchen and a copper bath positioned to look out at the trees. Power is solar. Water is heated by the stove, so a bath takes planning, which is somehow part of the appeal.",
+      "The eighty acres around it are being actively rewilded, and you are welcome anywhere on them. The nearest village is eleven kilometres, so bring what you need for the stay."
+    ],
+    "pricePerNight": 178,
+    "cleaningFee": 40,
+    "serviceFeeRate": 0.11,
+    "rating": 4.87,
+    "bedrooms": 1,
+    "beds": 1,
+    "baths": 1,
+    "maxGuests": 2,
+    "motif": "forest",
+    "palette": "moss",
+    "featured": true,
+    "highlights": [
+      "Mirrored cladding that vanishes into the pines",
+      "Copper bath facing the clearing",
+      "Eighty private acres of rewilded forest"
+    ],
+    "amenities": [
+      "Wood-burning stove",
+      "Solar power",
+      "Copper bath",
+      "Compact kitchen with two-ring hob",
+      "Firewood included",
+      "Free parking at the gate",
+      "Binoculars and field guide",
+      "French press and stovetop kettle"
+    ],
+    "houseRules": [
+      "Check-in from 4:00 PM, check-out by 10:00 AM",
+      "Two guests maximum, no exceptions",
+      "No open fires outside the stove",
+      "Dogs welcome, kept on lead in the woodland"
+    ],
+    "gallery": [
+      { "caption": "The hide reflecting the pines", "tone": "day" },
+      { "caption": "Clearing at first light", "tone": "mist" },
+      { "caption": "Copper bath and the clear wall", "tone": "golden" },
+      { "caption": "Stove lit against the dark", "tone": "night" },
+      { "caption": "Heather and pine to the ridge", "tone": "dusk" }
+    ],
+    "host": {
+      "name": "Fiona MacLeod",
+      "since": "2022",
+      "responseTime": "within a day",
+      "bio": "My partner and I bought the land in 2015 and have been planting it back ever since. The hide funds the trees. I will send a map and a gate code, and leave you alone unless you want otherwise."
+    },
+    "reviews": [
+      {
+        "author": "Owen D.",
+        "date": "2026-06-05",
+        "rating": 5,
+        "text": "We walked past it twice. Genuinely invisible until you are ten metres away. Two deer in the clearing on the first evening and no other human sound for three days."
+      },
+      {
+        "author": "Hannah C.",
+        "date": "2026-05-16",
+        "rating": 5,
+        "text": "The bath takes about two hours to heat and is completely worth it. Bring good food from Aviemore, there is nothing closer."
+      },
+      {
+        "author": "Callum G.",
+        "date": "2026-04-02",
+        "rating": 4,
+        "text": "Wonderful place. April was colder than we planned for and the stove is the only heat, so pack accordingly. Fiona was clear about that in advance, to be fair."
+      }
+    ]
+  },
+  {
+    "slug": "casa-limone",
+    "name": "Casa Limone",
+    "location": "Praiano, Italy",
+    "region": "Mediterranean",
+    "tripType": "Coastal escape",
+    "tagline": "Two hundred steps down to the water, through a working lemon grove",
+    "summary": "A terraced house on the Amalfi cliffside with a pergola, a lemon grove and a private path to the rocks below.",
+    "description": [
+      "Casa Limone is stacked into the cliff over four levels, connected by outdoor stairs through a lemon grove that has been in the same family since the 1930s. The lemons are enormous and you are welcome to them.",
+      "The main terrace sits under a vine pergola with Positano visible along the coast to the west. Below the house, a private path drops two hundred steps to a flat shelf of rock where you can swim off the ledge.",
+      "It is not a house for people who dislike stairs. It is a very good house for everyone else. Praiano village and the bus to Amalfi are a five minute walk up."
+    ],
+    "pricePerNight": 348,
+    "cleaningFee": 80,
+    "serviceFeeRate": 0.11,
+    "rating": 4.9,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 3,
+    "maxGuests": 6,
+    "motif": "coast",
+    "palette": "aegean",
+    "featured": true,
+    "highlights": [
+      "Private path to a swimming ledge",
+      "Vine pergola facing Positano",
+      "Lemon grove you are free to raid"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Vine-shaded terrace",
+      "Private sea access path",
+      "Air conditioning",
+      "Full kitchen with gas range",
+      "Washing machine",
+      "Espresso machine",
+      "Beach towels and umbrellas",
+      "Outdoor dining for eight"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 10:00 AM",
+      "No parties or events",
+      "Quiet hours after 11:00 PM",
+      "Not suitable for guests with limited mobility"
+    ],
+    "gallery": [
+      { "caption": "Pergola terrace toward Positano", "tone": "golden" },
+      { "caption": "Steps down through the lemons", "tone": "day" },
+      { "caption": "The swimming ledge at noon", "tone": "day" },
+      { "caption": "Coast road lights after dark", "tone": "night" },
+      { "caption": "Morning haze over the water", "tone": "mist" }
+    ],
+    "host": {
+      "name": "Rosa Esposito",
+      "since": "2015",
+      "responseTime": "within two hours",
+      "bio": "This was my grandmother's house and the grove is still worked by my cousin. I live at the top of the steps and can help with boats, restaurants and the awful business of parking in Praiano."
+    },
+    "reviews": [
+      {
+        "author": "Lucy A.",
+        "date": "2026-07-21",
+        "rating": 5,
+        "text": "The stairs are real and so is the reward. Swimming off the ledge with nobody else there, twice a day, for a week. Rosa found us a boat for half the price the town was quoting."
+      },
+      {
+        "author": "Ben F.",
+        "date": "2026-06-14",
+        "rating": 5,
+        "text": "Best terrace on the Amalfi coast and I will argue about it. We ate outside every night under the vines."
+      },
+      {
+        "author": "Ingrid H.",
+        "date": "2025-09-01",
+        "rating": 4,
+        "text": "Gorgeous, but take the mobility warning seriously — two hundred steps down means two hundred steps back up, in August heat, carrying everything."
+      }
+    ]
+  },
+  {
+    "slug": "vatn-loft",
+    "name": "Vatn Loft",
+    "location": "Reykjavík, Iceland",
+    "region": "Northern Europe",
+    "tripType": "City break",
+    "tagline": "A top-floor loft over the old harbour with a black steel kitchen",
+    "summary": "A pared-back loft in a converted 1930s warehouse, two streets from the harbour and ten minutes from everything.",
+    "description": [
+      "Vatn Loft occupies the top floor of a warehouse built in 1936 to store salted cod. The original roof trusses are exposed, the floors are patched oak, and the kitchen is a single run of black steel along the north wall.",
+      "Windows on three sides mean the light changes constantly — which in Reykjavík means blazing at 2 AM in June and barely arriving at all in December. The blackout blinds are excellent and you will need them.",
+      "The harbour, the flea market and the good coffee are all within a few streets. It is a genuinely central base for a long weekend, and a very comfortable one to come back to after a day in the weather."
+    ],
+    "pricePerNight": 214,
+    "cleaningFee": 50,
+    "serviceFeeRate": 0.11,
+    "rating": 4.83,
+    "bedrooms": 2,
+    "beds": 3,
+    "baths": 2,
+    "maxGuests": 4,
+    "motif": "tundra",
+    "palette": "slate",
+    "featured": false,
+    "highlights": [
+      "Top floor of a 1936 harbour warehouse",
+      "Windows on three sides",
+      "Two streets from the old harbour"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Full kitchen with induction range",
+      "Underfloor heating",
+      "Blackout blinds in every room",
+      "Washing machine and dryer",
+      "Espresso machine",
+      "Drying rack for wet gear",
+      "Self check-in with a keypad"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 11:00 AM",
+      "No parties or events",
+      "Quiet hours after 10:00 PM",
+      "No smoking indoors"
+    ],
+    "gallery": [
+      { "caption": "Roof trusses and the north windows", "tone": "day" },
+      { "caption": "Harbour from the east window", "tone": "golden" },
+      { "caption": "The black steel kitchen run", "tone": "day" },
+      { "caption": "Rooftops in December light", "tone": "mist" },
+      { "caption": "The loft after dark", "tone": "night" }
+    ],
+    "host": {
+      "name": "Björk Ólafsdóttir",
+      "since": "2019",
+      "responseTime": "within an hour",
+      "bio": "I converted the top two floors of this building and rent them both. Self check-in is standard, but I am ten minutes away and happy to come by with recommendations that are not on any list."
+    },
+    "reviews": [
+      {
+        "author": "Sofia N.",
+        "date": "2026-04-19",
+        "rating": 5,
+        "text": "Perfect base for four days. Walked everywhere. The blackout blinds saved us in April when it was still light at eleven."
+      },
+      {
+        "author": "Nathan P.",
+        "date": "2026-02-08",
+        "rating": 5,
+        "text": "Warm, quiet, and beautifully done. Coming back to underfloor heating after a day chasing the lights is a real pleasure."
+      },
+      {
+        "author": "Aisha K.",
+        "date": "2025-11-12",
+        "rating": 4,
+        "text": "Lovely space. It is a working harbour, so there is some early noise on weekdays. Did not bother us but worth knowing."
+      }
+    ]
+  },
+  {
+    "slug": "kastro-cave-house",
+    "name": "Kastro Cave House",
+    "location": "Oia, Greece",
+    "region": "Mediterranean",
+    "tripType": "Design stay",
+    "tagline": "A cave dwelling cut into the caldera wall, with a terrace over the drop",
+    "summary": "Two hundred years of rock, a plunge pool on the edge, and the most photographed sunset in Europe from your own terrace.",
+    "description": [
+      "Kastro is a genuine yposkafo — a cave house carved directly into the volcanic rock of the caldera wall. The interior is all curved white plaster with no straight lines anywhere, which keeps it around twenty degrees regardless of what August is doing outside.",
+      "The terrace is cantilevered over the drop, with a plunge pool at its edge and Thirasia across the water. The sunset that people crowd the Oia castle for happens directly in front of you, which is worth the rate on its own.",
+      "It is a five minute walk into Oia along the caldera path. Ammoudi and the boats are down the steps below."
+    ],
+    "pricePerNight": 396,
+    "cleaningFee": 85,
+    "serviceFeeRate": 0.11,
+    "rating": 4.95,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 2,
+    "maxGuests": 4,
+    "motif": "islands",
+    "palette": "aegean",
+    "featured": false,
+    "highlights": [
+      "Private terrace over the caldera drop",
+      "Heated plunge pool at the edge",
+      "Sunset directly in front of the house"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Heated plunge pool",
+      "Air conditioning",
+      "Full kitchen with induction range",
+      "Daily housekeeping",
+      "Breakfast delivered to the terrace",
+      "Espresso machine",
+      "Airport transfer on request"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 11:00 AM",
+      "Four guests maximum, no exceptions",
+      "No parties or events",
+      "Not suitable for young children"
+    ],
+    "gallery": [
+      { "caption": "Terrace and plunge pool at sunset", "tone": "golden" },
+      { "caption": "Curved plaster in the main room", "tone": "day" },
+      { "caption": "Caldera and Thirasia at noon", "tone": "day" },
+      { "caption": "Oia lights below the house", "tone": "night" },
+      { "caption": "Morning haze over the water", "tone": "mist" }
+    ],
+    "host": {
+      "name": "Nikos Andreadis",
+      "since": "2018",
+      "responseTime": "within an hour",
+      "bio": "I restored three cave houses in Oia over the last decade. Breakfast comes to the terrace whenever you want it, and I can get you onto a boat that avoids the worst of the crowds."
+    },
+    "reviews": [
+      {
+        "author": "Claire M.",
+        "date": "2026-06-28",
+        "rating": 5,
+        "text": "Having the sunset to yourself while three thousand people fight for a spot at the castle is a genuinely absurd luxury. Worth every euro."
+      },
+      {
+        "author": "Andreas L.",
+        "date": "2026-05-24",
+        "rating": 5,
+        "text": "The cave stays cool without air conditioning, which we did not believe until we tried it. Breakfast on the terrace, every morning, was the ritual."
+      },
+      {
+        "author": "Jo T.",
+        "date": "2025-09-10",
+        "rating": 5,
+        "text": "Small — it is a cave — but perfectly arranged. Nikos got us on a boat at six in the morning and we had Thirasia to ourselves."
+      }
+    ]
+  },
+  {
+    "slug": "tannhaus",
+    "name": "Tannhaus",
+    "location": "Black Forest, Germany",
+    "region": "Alpine",
+    "tripType": "Wellness",
+    "tagline": "A blackened timber house with a bathhouse in the trees",
+    "summary": "Charred larch, deep windows and a separate bathhouse with a sauna, cold plunge and a wood-fired tub under the spruce.",
+    "description": [
+      "Tannhaus is built from charred larch, which is why it reads almost black against the spruce. Inside it is the opposite — pale ash, deep window seats and a long kitchen table that gets most of the morning light.",
+      "The point of the place is the bathhouse, thirty metres up the path: a proper wood-fired sauna, a cold plunge fed from the stream, and an outdoor tub you fire yourself about two hours before you want it. Doing the full circuit in falling snow is the reason people rebook.",
+      "Trails leave from the property in three directions. Freiburg is fifty minutes if you need a city, and Baiersbronn's restaurants are closer than that."
+    ],
+    "pricePerNight": 242,
+    "cleaningFee": 60,
+    "serviceFeeRate": 0.11,
+    "rating": 4.93,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 2,
+    "maxGuests": 6,
+    "motif": "forest",
+    "palette": "moss",
+    "featured": false,
+    "highlights": [
+      "Wood-fired sauna and stream-fed cold plunge",
+      "Outdoor tub you fire yourself",
+      "Trails leaving in three directions"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Wood-fired sauna",
+      "Outdoor wood-fired tub",
+      "Cold plunge",
+      "Full kitchen with induction range",
+      "Wood-burning fireplace",
+      "Underfloor heating",
+      "Washing machine and dryer",
+      "Firewood included",
+      "Free parking on site"
+    ],
+    "houseRules": [
+      "Check-in from 4:00 PM, check-out by 10:00 AM",
+      "No parties or events",
+      "Bathhouse closes at 10:00 PM",
+      "No smoking anywhere on the property"
+    ],
+    "gallery": [
+      { "caption": "Charred larch against the spruce", "tone": "day" },
+      { "caption": "The bathhouse path in snow", "tone": "mist" },
+      { "caption": "Kitchen table in morning light", "tone": "golden" },
+      { "caption": "Tub fired at dusk", "tone": "dusk" },
+      { "caption": "Sauna window onto the trees", "tone": "night" }
+    ],
+    "host": {
+      "name": "Stefan Bauer",
+      "since": "2020",
+      "responseTime": "within two hours",
+      "bio": "I built Tannhaus with a carpenter from the next valley. I will walk you through firing the tub on arrival — it takes about ten minutes to learn and repays itself all week."
+    },
+    "reviews": [
+      {
+        "author": "Miriam W.",
+        "date": "2026-01-24",
+        "rating": 5,
+        "text": "Sauna, snow, cold plunge, repeat. We did the circuit four times a day and left better people than we arrived."
+      },
+      {
+        "author": "Felix N.",
+        "date": "2026-03-09",
+        "rating": 5,
+        "text": "Stefan's ten minute tub lesson is worth showing up for. The house itself is beautifully made — every detail has clearly been argued about."
+      },
+      {
+        "author": "Sofia N.",
+        "date": "2025-10-17",
+        "rating": 5,
+        "text": "Went in October for the colour and it was perfect. Quiet, warm, and the trails from the door meant we never moved the car."
+      }
+    ]
+  },
+  {
+    "slug": "atelier-graca",
+    "name": "Atelier Graça",
+    "location": "Lisbon, Portugal",
+    "region": "Atlantic Coast",
+    "tripType": "City break",
+    "tagline": "A painter's studio on the top of the hill, with the whole city below",
+    "summary": "A converted artist's studio in Graça with double-height windows, a small roof terrace and the 28 tram at the end of the street.",
+    "description": [
+      "Atelier Graça was a working painter's studio until 2018 and still feels like one: double-height north windows, white walls, a mezzanine reached by a steel stair, and enough space to leave things where you drop them.",
+      "The roof terrace is small — room for two chairs and a table — but it faces southwest over the Alfama rooftops to the river, which makes it the most used square metre in the flat.",
+      "Graça is a real neighbourhood rather than a tourist one. The 28 tram stops at the end of the street, the miradouro is three minutes uphill, and there is a tasca on the corner that has not changed its menu in forty years."
+    ],
+    "pricePerNight": 158,
+    "cleaningFee": 45,
+    "serviceFeeRate": 0.11,
+    "rating": 4.86,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "maxGuests": 3,
+    "motif": "skyline",
+    "palette": "dusk",
+    "featured": false,
+    "highlights": [
+      "Double-height studio windows",
+      "Roof terrace over the Alfama rooftops",
+      "The 28 tram at the end of the street"
+    ],
+    "amenities": [
+      "Fast wifi throughout",
+      "Roof terrace",
+      "Full kitchen with gas range",
+      "Air conditioning",
+      "Washing machine",
+      "Espresso machine",
+      "Self check-in with a keypad",
+      "Record player and a decent shelf"
+    ],
+    "houseRules": [
+      "Check-in from 3:00 PM, check-out by 11:00 AM",
+      "No parties or events",
+      "Quiet hours after 10:00 PM",
+      "No smoking indoors"
+    ],
+    "gallery": [
+      { "caption": "North windows and the mezzanine", "tone": "day" },
+      { "caption": "Roof terrace toward the river", "tone": "golden" },
+      { "caption": "Alfama rooftops below", "tone": "day" },
+      { "caption": "The 28 passing at night", "tone": "night" },
+      { "caption": "River fog from the terrace", "tone": "mist" }
+    ],
+    "host": {
+      "name": "Tiago Cardoso",
+      "since": "2018",
+      "responseTime": "within an hour",
+      "bio": "The studio belonged to my aunt, who painted here for thirty years. I kept the windows and the shelf of records and changed almost nothing else."
+    },
+    "reviews": [
+      {
+        "author": "Emma J.",
+        "date": "2026-05-30",
+        "rating": 5,
+        "text": "The light in this flat is remarkable. We ended up spending mornings inside just because of it, which is not what you expect to do in Lisbon."
+      },
+      {
+        "author": "Marco D.",
+        "date": "2026-04-13",
+        "rating": 5,
+        "text": "Great neighbourhood, no crowds, excellent tasca on the corner. The terrace is tiny and completely worth it at sunset."
+      },
+      {
+        "author": "Sarah B.",
+        "date": "2026-08-06",
+        "rating": 4,
+        "text": "Beautiful space. Graça is a hill and the flat is at the top of it, so the walk home is a workout. The tram helps."
+      }
+    ]
+  }
+]

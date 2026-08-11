@@ -1,0 +1,74 @@
+[
+  {
+    "id": "WS-4820-KLM",
+    "slug": "chalet-aiguille",
+    "status": "confirmed",
+    "checkIn": "2026-09-12",
+    "checkOut": "2026-09-19",
+    "guests": 6,
+    "nightlyRate": 520,
+    "total": 3925,
+    "bookedOn": "2026-04-02",
+    "note": "Claude is holding two extra sets of keys for the group arriving late."
+  },
+  {
+    "id": "WS-4913-QRT",
+    "slug": "casa-oliveira",
+    "status": "confirmed",
+    "checkIn": "2026-10-03",
+    "checkOut": "2026-10-08",
+    "guests": 2,
+    "nightlyRate": 284,
+    "total": 1573,
+    "bookedOn": "2026-06-21",
+    "note": "Bikes reserved for the full stay."
+  },
+  {
+    "id": "WS-5006-BNX",
+    "slug": "the-fjord-cabin",
+    "status": "pending",
+    "checkIn": "2026-09-26",
+    "checkOut": "2026-09-29",
+    "guests": 3,
+    "nightlyRate": 196,
+    "total": 698,
+    "bookedOn": "2026-08-05",
+    "note": "Henrik confirms road conditions seven days out."
+  },
+  {
+    "id": "WS-3714-JHD",
+    "slug": "riad-nissa",
+    "status": "completed",
+    "checkIn": "2026-05-14",
+    "checkOut": "2026-05-20",
+    "guests": 4,
+    "nightlyRate": 168,
+    "total": 1155,
+    "bookedOn": "2026-01-19",
+    "note": "Airport transfer both ways."
+  },
+  {
+    "id": "WS-3122-WPS",
+    "slug": "vatn-loft",
+    "status": "completed",
+    "checkIn": "2026-04-16",
+    "checkOut": "2026-04-20",
+    "guests": 2,
+    "nightlyRate": 214,
+    "total": 998,
+    "bookedOn": "2025-12-08",
+    "note": "Self check-in, keypad code sent the night before."
+  },
+  {
+    "id": "WS-2988-LRV",
+    "slug": "tannhaus",
+    "status": "completed",
+    "checkIn": "2025-10-15",
+    "checkOut": "2025-10-19",
+    "guests": 4,
+    "nightlyRate": 242,
+    "total": 1096,
+    "bookedOn": "2025-06-02",
+    "note": "Bathhouse walkthrough on arrival."
+  }
+]
