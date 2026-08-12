@@ -54,7 +54,7 @@
     "destinationLabel": "Wohin",
     "destinationPlaceholder": "Überall in Europa",
     "destinationFieldLabel": "Nach Ziel oder Hausname suchen",
-    "checkInLabel": "Anreise",
+    "checkInLabel": "Ankunft",
     "checkInFieldLabel": "Anreisedatum",
     "checkOutLabel": "Abreise",
     "checkOutFieldLabel": "Abreisedatum",
@@ -94,7 +94,7 @@
     "onePriceBody": "Die Nummer, die Sie beim Checkout sehen, ist die Nummer, die Sie zahlen. Reinigung und Service sind von vornherein aufgeschlüsselt, und es gibt keine Resortgebühren an der Tür.",
     "hostsReplyTitle": "Gastgeber, die antworten",
     "hostsReplyBody": "Unsere Gastgeber antworten im Durchschnitt in weniger als zwei Stunden. Die meisten von ihnen wohnen in Gehweite und werden Sie mit den Schlüsseln selbst abholen.",
-    "specialistsTitle": "Spezialisten erreichbar",
+    "specialistsTitle": "Spezialisten im Dienst",
     "specialistsBody": "Ein Reisespezialist ist sieben Tage die Woche erreichbar, um Termine zu verschieben, Transfers zu arrangieren oder Ihnen einen Tisch zu finden, der online vollständig gebucht ist."
   },
   "Testimonials": {
@@ -184,7 +184,7 @@
   },
   "Booking": {
     "pricePerNight": "<amount>{price}</amount> pro Nacht",
-    "checkInLabel": "Anreise",
+    "checkInLabel": "Ankunft",
     "checkOutLabel": "Abreise",
     "checkInDateAria": "Anreisedatum",
     "checkOutDateAria": "Abreisedatum",
@@ -197,8 +197,8 @@
     "nightlyRateSubtotal": "{price} × {nights, plural, one {# Nacht} other {# Nächte}}",
     "cleaningFee": "Reinigungsgebühr",
     "serviceFee": "Wanderstay-Servicegebühr",
-    "occupancyTax": "Kurtaxe",
-    "totalDue": "Gesamt",
+    "occupancyTax": "Übernachtungssteuer",
+    "totalDue": "Gesamtbetrag",
     "freeCancellation": "Kostenlose Stornierung bis 14 Tage vor Anreise"
   },
   "Gallery": {
@@ -350,10 +350,10 @@
     "emptyUpcomingCta": "Einen Ort zum Übernachten finden",
     "emptyPastHeading": "Keine vergangenen Aufenthalte",
     "emptyPastBody": "Sobald Sie ein Haus verlassen haben, wird es hier angezeigt, damit Sie eine Bewertung hinterlassen oder es erneut buchen können.",
-    "emptyPastCta": "Reiseziele durchsuchen",
+    "emptyPastCta": "Destinationen entdecken",
     "emptyCancelledHeading": "Nichts storniert",
     "emptyCancelledBody": "Sie haben keine Buchung bei uns storniert. Wenn sich Ihre Pläne ändern, können die meisten Aufenthalte verschoben statt storniert werden.",
-    "emptyCancelledCta": "Reiseziele durchsuchen",
+    "emptyCancelledCta": "Destinationen entdecken",
     "actionViewHouse": "Haus anzeigen",
     "actionRequestChange": "Änderung anfordern",
     "actionMessageHost": "Gastgeber kontaktieren",
