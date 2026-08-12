@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useState } from "react";
 import { CheckIcon, ShieldIcon, StarIcon } from "./icons";
 import { buildPriceBreakdown, getAvailabilityMessage, MINIMUM_STAY_NIGHTS } from "@/lib/booking";
@@ -14,6 +14,7 @@ interface BookingWidgetProps {
 
 export function BookingWidget({ destination }: BookingWidgetProps) {
   const t = useTranslations("Booking");
+  const locale = useLocale();
   // `getAvailabilityMessage` returns a key in the `BookingStatus` namespace (owned
   // by src/lib/booking.ts), so the copy is resolved here rather than in the module.
   const tStatus = useTranslations("BookingStatus");
@@ -48,7 +49,7 @@ export function BookingWidget({ destination }: BookingWidgetProps) {
       <div className="flex items-baseline justify-between gap-3">
         <p className="text-[15px] text-muted">
           {t.rich("pricePerNight", {
-            price: formatPrice(destination.pricePerNight),
+            price: formatPrice(locale, destination.pricePerNight),
             amount: (chunks) => (
               <strong className="text-[24px] font-bold text-ink">{chunks}</strong>
             ),
@@ -56,7 +57,7 @@ export function BookingWidget({ destination }: BookingWidgetProps) {
         </p>
         <span className="flex items-center gap-1 text-[13.5px] font-semibold text-ink">
           <StarIcon className="h-3.5 w-3.5 text-accent" />
-          {formatRating(destination.rating)}
+          {formatRating(locale, destination.rating)}
         </span>
       </div>
 
@@ -146,27 +147,27 @@ export function BookingWidget({ destination }: BookingWidgetProps) {
         <div className="flex items-center justify-between">
           <dt className="text-ink-soft underline decoration-line-strong underline-offset-4">
             {t("nightlyRateSubtotal", {
-              price: formatPrice(destination.pricePerNight),
+              price: formatPrice(locale, destination.pricePerNight),
               nights: breakdown.nights,
             })}
           </dt>
-          <dd className="font-medium text-ink">{formatPrice(breakdown.accommodation)}</dd>
+          <dd className="font-medium text-ink">{formatPrice(locale, breakdown.accommodation)}</dd>
         </div>
         <div className="flex items-center justify-between">
           <dt className="text-ink-soft">{t("cleaningFee")}</dt>
-          <dd className="font-medium text-ink">{formatPrice(breakdown.cleaningFee)}</dd>
+          <dd className="font-medium text-ink">{formatPrice(locale, breakdown.cleaningFee)}</dd>
         </div>
         <div className="flex items-center justify-between">
           <dt className="text-ink-soft">{t("serviceFee")}</dt>
-          <dd className="font-medium text-ink">{formatPrice(breakdown.serviceFee)}</dd>
+          <dd className="font-medium text-ink">{formatPrice(locale, breakdown.serviceFee)}</dd>
         </div>
         <div className="flex items-center justify-between">
           <dt className="text-ink-soft">{t("occupancyTax")}</dt>
-          <dd className="font-medium text-ink">{formatPrice(breakdown.occupancyTax)}</dd>
+          <dd className="font-medium text-ink">{formatPrice(locale, breakdown.occupancyTax)}</dd>
         </div>
         <div className="flex items-center justify-between border-t border-line pt-4 text-[16px]">
           <dt className="font-semibold text-ink">{t("totalDue")}</dt>
-          <dd className="font-bold text-ink">{formatPrice(breakdown.total)}</dd>
+          <dd className="font-bold text-ink">{formatPrice(locale, breakdown.total)}</dd>
         </div>
       </dl>
 

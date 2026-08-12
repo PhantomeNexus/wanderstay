@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Scenery } from "./scenery";
 import { CheckIcon, CloseIcon } from "./icons";
 import { getDestination, getTripsByStatus } from "@/lib/destinations";
@@ -113,6 +113,7 @@ export function TripsDashboard() {
 
 function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: ToastKey) => void }) {
   const t = useTranslations("Trips");
+  const locale = useLocale();
   const tStatus = useTranslations("BookingStatus");
   const destination = getDestination(trip.slug);
 
@@ -168,7 +169,7 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: ToastKey) 
                 {t("datesLabel")}
               </dt>
               <dd className="mt-1 font-medium text-ink">
-                {formatDateRange(trip.checkIn, trip.checkOut)}
+                {formatDateRange(locale, trip.checkIn, trip.checkOut)}
               </dd>
             </div>
             <div>
@@ -183,13 +184,13 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: ToastKey) 
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
                 {t("totalLabel")}
               </dt>
-              <dd className="mt-1 font-medium text-ink">{formatPrice(trip.total)}</dd>
+              <dd className="mt-1 font-medium text-ink">{formatPrice(locale, trip.total)}</dd>
             </div>
             <div>
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
                 {t("bookedLabel")}
               </dt>
-              <dd className="mt-1 font-medium text-ink">{formatLongDate(trip.bookedOn)}</dd>
+              <dd className="mt-1 font-medium text-ink">{formatLongDate(locale, trip.bookedOn)}</dd>
             </div>
           </dl>
 

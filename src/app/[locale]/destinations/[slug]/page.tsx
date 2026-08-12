@@ -5,7 +5,7 @@ import { Gallery } from "@/components/gallery";
 import { BookingWidget } from "@/components/booking-widget";
 import { CheckIcon, PinIcon, SparkIcon, StarIcon } from "@/components/icons";
 import { destinations, getDestination } from "@/lib/destinations";
-import { formatLongDate, formatRating } from "@/lib/format";
+import { formatLongDate, formatRating, formatPrice } from "@/lib/format";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export function generateStaticParams() {
@@ -79,7 +79,7 @@ export default async function DestinationDetailPage({
           <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-ink">
             <StarIcon className="h-3.5 w-3.5 text-accent" />
             {t("ratingWithReviews", {
-              rating: formatRating(destination.rating),
+              rating: formatRating(locale, destination.rating),
               count: reviews.length,
             })}
           </span>
@@ -181,7 +181,7 @@ export default async function DestinationDetailPage({
           <section className="mt-12 border-t border-line pt-12">
             <h2 className="flex flex-wrap items-center gap-2 text-[22px] font-bold tracking-tight text-ink">
               <StarIcon className="h-5 w-5 text-accent" />
-              {formatRating(destination.rating)}
+              {formatRating(locale, destination.rating)}
               <span className="text-muted" aria-hidden="true">
                 ·
               </span>
@@ -201,7 +201,7 @@ export default async function DestinationDetailPage({
                       </span>
                       <div>
                         <p className="text-[14.5px] font-semibold text-ink">{review.author}</p>
-                        <p className="text-[13px] text-muted">{formatLongDate(review.date)}</p>
+                        <p className="text-[13px] text-muted">{formatLongDate(locale, review.date)}</p>
                       </div>
                     </div>
                     <div className="flex gap-0.5 text-accent">
@@ -250,7 +250,7 @@ export default async function DestinationDetailPage({
                 <p className="mt-1 text-[13.5px] text-muted">{house.location}</p>
                 <p className="mt-3 text-[13.5px] text-ink-soft">
                   {t.rich("nearbyPricePerNight", {
-                    price: "$" + house.pricePerNight,
+                    price: formatPrice(locale, house.pricePerNight),
                     amount: (chunks) => <strong className="font-semibold text-ink">{chunks}</strong>,
                   })}
                 </p>

@@ -2,7 +2,7 @@
 
 import { Link, useRouter } from "@/i18n/navigation";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Scenery } from "./scenery";
 import { CheckIcon, ShieldIcon } from "./icons";
 import { guestDetailsConfig, orderSummaryConfig, paymentConfig } from "@/lib/form-config";
@@ -22,6 +22,7 @@ type Errors = Record<string, string>;
 
 export function CheckoutFlow({ destination, checkIn, checkOut, guests }: CheckoutFlowProps) {
   const t = useTranslations("Checkout");
+  const locale = useLocale();
   const tPayment = useTranslations("Payment");
   const tSummary = useTranslations("OrderSummary");
   const router = useRouter();
@@ -412,11 +413,11 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
             <dl className="mt-5 space-y-2.5 border-t border-line pt-5 text-[14px]">
               <Row
                 label={tSummary(orderSummaryConfig.checkInLabel)}
-                value={formatLongDate(checkIn)}
+                value={formatLongDate(locale, checkIn)}
               />
               <Row
                 label={tSummary(orderSummaryConfig.checkOutLabel)}
-                value={formatLongDate(checkOut)}
+                value={formatLongDate(locale, checkOut)}
               />
               <Row
                 label={tSummary(orderSummaryConfig.nightsLabel)}
@@ -431,22 +432,22 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
             <dl className="mt-5 space-y-2.5 border-t border-line pt-5 text-[14px]">
               <Row
                 label={tSummary("nightlyRateRow", {
-                  price: formatPrice(destination.pricePerNight),
+                  price: formatPrice(locale, destination.pricePerNight),
                   nights: breakdown.nights,
                 })}
-                value={formatPrice(breakdown.accommodation)}
+                value={formatPrice(locale, breakdown.accommodation)}
               />
               <Row
                 label={tSummary(orderSummaryConfig.cleaningLabel)}
-                value={formatPrice(breakdown.cleaningFee)}
+                value={formatPrice(locale, breakdown.cleaningFee)}
               />
               <Row
                 label={tSummary(orderSummaryConfig.serviceLabel)}
-                value={formatPrice(breakdown.serviceFee)}
+                value={formatPrice(locale, breakdown.serviceFee)}
               />
               <Row
                 label={tSummary(orderSummaryConfig.taxLabel)}
-                value={formatPrice(breakdown.occupancyTax)}
+                value={formatPrice(locale, breakdown.occupancyTax)}
               />
             </dl>
 
@@ -454,7 +455,7 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
               <p className="text-[16px] font-semibold text-ink">
                 {tSummary(orderSummaryConfig.totalLabel)}
               </p>
-              <p className="text-[20px] font-bold text-ink">{formatPrice(breakdown.total)}</p>
+              <p className="text-[20px] font-bold text-ink">{formatPrice(locale, breakdown.total)}</p>
             </div>
             <div className="mt-2 flex items-center justify-between">
               <p className="text-[13.5px] text-muted">

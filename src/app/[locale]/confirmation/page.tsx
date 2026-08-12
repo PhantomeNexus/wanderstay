@@ -92,7 +92,7 @@ export default async function ConfirmationPage({
               <p className="mt-1 text-[22px] font-bold tracking-tight text-ink">{reference}</p>
             </div>
             <p className="mt-3 text-[13.5px] text-muted sm:mt-0 sm:text-right">
-              {t("bookedOn", { date: formatShortDate("2026-08-11") })}
+              {t("bookedOn", { date: formatShortDate(locale, "2026-08-11") })}
               <br />
               <span className="text-faint">{t("keepReferenceNote")}</span>
             </p>
@@ -101,12 +101,12 @@ export default async function ConfirmationPage({
           <dl className="grid gap-x-8 gap-y-5 p-6 sm:grid-cols-2">
             <Detail
               label={t("checkInLabel")}
-              value={formatLongDate(checkIn)}
+              value={formatLongDate(locale, checkIn)}
               note={t("checkInNote")}
             />
             <Detail
               label={t("checkOutLabel")}
-              value={formatLongDate(checkOut)}
+              value={formatLongDate(locale, checkOut)}
               note={t("checkOutNote")}
             />
             <Detail
@@ -117,7 +117,7 @@ export default async function ConfirmationPage({
             <Detail
               label={t("lengthOfStayLabel")}
               value={t("nightsValue", { count: breakdown.nights })}
-              note={t("perNightNote", { price: formatPrice(destination.pricePerNight) })}
+              note={t("perNightNote", { price: formatPrice(locale, destination.pricePerNight) })}
             />
             <Detail
               label={t("hostLabel")}
@@ -126,7 +126,7 @@ export default async function ConfirmationPage({
             />
             <Detail
               label={t("totalLabel")}
-              value={formatPrice(breakdown.total)}
+              value={formatPrice(locale, breakdown.total)}
               note={t("totalNote")}
             />
           </dl>
