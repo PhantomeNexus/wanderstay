@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TripsDashboard, TripsGreeting } from "@/components/trips-dashboard";
 import { currentUser } from "@/lib/user";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "My Trips",
@@ -8,7 +9,14 @@ export const metadata: Metadata = {
     "Every stay you have booked with Wanderstay — upcoming, past and cancelled — with your host details and booking references in one place.",
 };
 
-export default function TripsPage() {
+export default async function TripsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="shell py-12 md:py-16">
       <header className="flex flex-wrap items-start justify-between gap-6">

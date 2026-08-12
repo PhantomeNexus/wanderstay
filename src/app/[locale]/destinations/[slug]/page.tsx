@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { Gallery } from "@/components/gallery";
 import { BookingWidget } from "@/components/booking-widget";
 import { CheckIcon, PinIcon, SparkIcon, StarIcon } from "@/components/icons";
 import { destinations, getDestination } from "@/lib/destinations";
 import { formatLongDate, formatRating } from "@/lib/format";
+import { setRequestLocale } from "next-intl/server";
 
 export function generateStaticParams() {
   return destinations.map((destination) => ({ slug: destination.slug }));
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
   const destination = getDestination(slug);
@@ -35,9 +36,10 @@ export async function generateMetadata({
 export default async function DestinationDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const destination = getDestination(slug);
 
   if (!destination) {

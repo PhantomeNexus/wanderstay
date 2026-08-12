@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { useState } from "react";
 import { CheckIcon, ShieldIcon, StarIcon } from "./icons";
 import { buildPriceBreakdown, getAvailabilityMessage } from "@/lib/booking";

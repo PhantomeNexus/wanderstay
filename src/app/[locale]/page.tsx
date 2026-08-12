@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { SearchBar } from "@/components/search-bar";
 import { DestinationCard } from "@/components/destination-card";
 import { NewsletterSignup } from "@/components/newsletter-signup";
@@ -8,6 +8,7 @@ import { ArrowIcon, StarIcon, VALUE_PROP_ICONS } from "@/components/icons";
 import { getFeaturedDestinations, TOTAL_STAYS_ON_PLATFORM } from "@/lib/destinations";
 import { STAT_HIGHLIGHTS, TESTIMONIALS, VALUE_PROPS } from "@/lib/site-config";
 import { currentUser } from "@/lib/user";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Wanderstay — Boutique stays and experiences",
@@ -15,7 +16,14 @@ export const metadata: Metadata = {
     "Forty-eight boutique houses across Europe and North Africa, each one visited before it went on the list. Book a coastal escape, a mountain retreat or a design stay.",
 };
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const featured = getFeaturedDestinations();
 
   return (

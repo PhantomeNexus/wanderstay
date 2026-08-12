@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DestinationExplorer } from "@/components/destination-explorer";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "All destinations",
@@ -7,7 +8,14 @@ export const metadata: Metadata = {
     "Browse every boutique house on the Wanderstay list — coastal escapes, mountain retreats, design stays and off-grid cabins across Europe and North Africa.",
 };
 
-export default function DestinationsPage() {
+export default async function DestinationsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="shell py-12 md:py-16">
       <header className="max-w-2xl">

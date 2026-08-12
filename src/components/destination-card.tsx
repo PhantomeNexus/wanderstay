@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Scenery } from "./scenery";
 import { StarIcon } from "./icons";
 import { formatPrice, formatRating } from "@/lib/format";

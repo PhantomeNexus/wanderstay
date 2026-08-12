@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Scenery } from "@/components/scenery";
 import { CheckIcon, SparkIcon } from "@/components/icons";
 import { STAT_HIGHLIGHTS } from "@/lib/site-config";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "About Wanderstay",
@@ -59,7 +60,14 @@ const TEAM = [
   { name: "Tom Wheeler", role: "Host relations", note: "Handles payouts and standards" },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div>
       <section className="relative overflow-hidden border-b border-line">

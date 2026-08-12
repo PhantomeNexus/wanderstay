@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CheckoutFlow } from "@/components/checkout-flow";
 import { destinations, getDestination } from "@/lib/destinations";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -9,10 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function CheckoutPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const query = await searchParams;
 
   const staySlug = typeof query.stay === "string" ? query.stay : destinations[0].slug;

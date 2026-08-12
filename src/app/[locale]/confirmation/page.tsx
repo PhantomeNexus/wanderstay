@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Scenery } from "@/components/scenery";
 import { CheckIcon } from "@/components/icons";
 import { destinations, getDestination } from "@/lib/destinations";
 import { buildPriceBreakdown, getStatusMessage } from "@/lib/booking";
 import { formatLongDate, formatPrice, formatShortDate } from "@/lib/format";
 import { currentUser } from "@/lib/user";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Booking confirmed",
@@ -33,10 +34,14 @@ const NEXT_STEPS = [
 ];
 
 export default async function ConfirmationPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const query = await searchParams;
 
   const reference = typeof query.ref === "string" ? query.ref : "WS-4820-KLM";

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { FAQ_CATEGORIES, FAQS } from "@/lib/faqs";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Frequently asked questions",
@@ -9,7 +10,14 @@ export const metadata: Metadata = {
     "Answers on booking, payment, cancellation, keys and house rules — plus how to reach a Wanderstay specialist seven days a week.",
 };
 
-export default function FaqPage() {
+export default async function FaqPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="shell py-12 md:py-16">
       <div className="mx-auto max-w-3xl">

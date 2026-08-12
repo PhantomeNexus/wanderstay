@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { WanderstayMark } from "./scenery";
 import { CloseIcon, MenuIcon } from "./icons";
+import { LocaleSwitcher } from "./locale-switcher";
 import { NAV_ACTIONS, NAV_ITEMS, SITE_NAME } from "@/lib/site-config";
 import { currentUser } from "@/lib/user";
 
@@ -47,6 +47,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2.5 md:flex">
+          <LocaleSwitcher />
           <button
             type="button"
             title="Sign in to your Wanderstay account"
@@ -94,7 +95,10 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-2 flex items-center gap-3 border-t border-line pt-4">
+            <div className="mt-2 border-t border-line pt-4">
+              <LocaleSwitcher />
+            </div>
+            <div className="mt-3 flex items-center gap-3">
               <button
                 type="button"
                 className="rounded-full border border-line-strong px-4 py-2.5 text-[14px] font-medium text-ink"
