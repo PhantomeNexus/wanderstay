@@ -1,130 +1,124 @@
+// User-facing copy lives in `messages/{locale}.json`, never in this module.
+// Every entry below exports a stable message *key* plus non-copy data
+// (hrefs, icon names, initials, numeric values). Components resolve the copy
+// with `t(item.key)` against the namespace named in each comment.
+
+/** Brand name — a proper noun, deliberately not translated. */
 export const SITE_NAME = "Wanderstay";
-export const SITE_TAGLINE = "Boutique stays and experiences, chosen one at a time";
 
+/** Key in the `Nav` namespace. */
+export const SITE_TAGLINE_KEY = "tagline";
+
+/** Keys in the `Nav` namespace. */
 export const NAV_ITEMS = [
-  { label: "Destinations", href: "/destinations" },
-  { label: "My Trips", href: "/trips" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
-];
+  { key: "destinations", href: "/destinations" },
+  { key: "trips", href: "/trips" },
+  { key: "about", href: "/about" },
+  { key: "faq", href: "/faq" },
+] as const;
 
-export const NAV_ACTIONS = {
-  signIn: "Sign in",
-  startBooking: "Book now",
-  menuOpen: "Open the main menu",
-  menuClose: "Close the main menu",
-  brandHome: "Wanderstay home",
-};
-
+/** Keys in the `Footer` namespace. */
 export const FOOTER_COLUMNS = [
   {
-    heading: "Explore",
+    id: "explore",
+    headingKey: "exploreHeading",
     links: [
-      { label: "All destinations", href: "/destinations" },
-      { label: "Coastal escapes", href: "/destinations" },
-      { label: "Mountain retreats", href: "/destinations" },
-      { label: "Design stays", href: "/destinations" },
-      { label: "Off-grid cabins", href: "/destinations" },
+      { key: "allDestinations", href: "/destinations" },
+      { key: "coastalEscapes", href: "/destinations" },
+      { key: "mountainRetreats", href: "/destinations" },
+      { key: "designStays", href: "/destinations" },
+      { key: "offGridCabins", href: "/destinations" },
     ],
   },
   {
-    heading: "Company",
+    id: "company",
+    headingKey: "companyHeading",
     links: [
-      { label: "About us", href: "/about" },
-      { label: "How we choose houses", href: "/about" },
-      { label: "Careers", href: "/about" },
-      { label: "Press", href: "/about" },
+      { key: "aboutUs", href: "/about" },
+      { key: "howWeChooseHouses", href: "/about" },
+      { key: "careers", href: "/about" },
+      { key: "press", href: "/about" },
     ],
   },
   {
-    heading: "Support",
+    id: "support",
+    headingKey: "supportHeading",
     links: [
-      { label: "Help centre", href: "/faq" },
-      { label: "Frequently asked questions", href: "/faq" },
-      { label: "Cancellation policy", href: "/faq" },
-      { label: "Contact a specialist", href: "/faq" },
+      { key: "helpCentre", href: "/faq" },
+      { key: "faq", href: "/faq" },
+      { key: "cancellationPolicy", href: "/faq" },
+      { key: "contactSpecialist", href: "/faq" },
     ],
   },
   {
-    heading: "Hosts",
+    id: "hosts",
+    headingKey: "hostsHeading",
     links: [
-      { label: "List your house", href: "/about" },
-      { label: "Host standards", href: "/about" },
-      { label: "Host resources", href: "/faq" },
+      { key: "listYourHouse", href: "/about" },
+      { key: "hostStandards", href: "/about" },
+      { key: "hostResources", href: "/faq" },
     ],
   },
-];
+] as const;
 
+/** Keys in the `Footer` namespace. */
 export const FOOTER_LEGAL = [
-  { label: "Privacy", href: "/about" },
-  { label: "Terms", href: "/about" },
-  { label: "Cookies", href: "/about" },
-];
+  { key: "privacy", href: "/about" },
+  { key: "terms", href: "/about" },
+  { key: "cookies", href: "/about" },
+] as const;
 
-export const FOOTER_NOTE =
-  "Wanderstay works with a small number of independent hosts across Europe and North Africa. Every house is visited before it is listed.";
+/** Key in the `Footer` namespace. */
+export const FOOTER_NOTE_KEY = "note";
 
+/** Keys in the `ValueProps` namespace. */
 export const VALUE_PROPS = [
+  { id: "visited", titleKey: "visitedTitle", bodyKey: "visitedBody", icon: "key" },
+  { id: "onePrice", titleKey: "onePriceTitle", bodyKey: "onePriceBody", icon: "receipt" },
+  { id: "hostsReply", titleKey: "hostsReplyTitle", bodyKey: "hostsReplyBody", icon: "chat" },
   {
-    title: "Every house is visited",
-    body: "Someone from our team has stayed a night in each property on this site. If a house does not hold up in person, it does not go on the list.",
-    icon: "key",
-  },
-  {
-    title: "One price, start to finish",
-    body: "The number you see at checkout is the number you pay. Cleaning and service are itemised up front, and there are no resort fees waiting at the door.",
-    icon: "receipt",
-  },
-  {
-    title: "Hosts who answer",
-    body: "Our hosts reply in under two hours on average. Most of them live within walking distance and will meet you with the keys themselves.",
-    icon: "chat",
-  },
-  {
-    title: "Specialists on call",
-    body: "A travel specialist is available seven days a week to move dates, arrange transfers or find you a table that is fully booked online.",
+    id: "specialists",
+    titleKey: "specialistsTitle",
+    bodyKey: "specialistsBody",
     icon: "compass",
   },
-];
+] as const;
 
+/**
+ * Keys in the `Testimonials` namespace. Author names and initials are proper
+ * nouns kept as data.
+ */
 export const TESTIMONIALS = [
   {
-    quote:
-      "We have booked four trips through Wanderstay now and not one of them has been a compromise. The houses are genuinely as described, which sounds like a low bar until you have used the alternatives.",
+    id: "lindqvist",
+    quoteKey: "lindqvistQuote",
+    roleKey: "lindqvistRole",
     author: "Rebecca Lindqvist",
-    role: "Booked The Fjord Cabin and three others",
     initials: "RL",
   },
   {
-    quote:
-      "I moved our dates twice and changed the guest count once. Both times someone picked up within a minute and sorted it without a fee. That is the whole reason I keep coming back.",
+    id: "haddad",
+    quoteKey: "haddadQuote",
+    roleKey: "haddadRole",
     author: "Amir Haddad",
-    role: "Booked Riad Nissa",
     initials: "AH",
   },
   {
-    quote:
-      "The photography is honest. Nothing was shot with a lens that made a small room look enormous. What we walked into was exactly what we chose eight weeks earlier.",
+    id: "okonkwo",
+    quoteKey: "okonkwoQuote",
+    roleKey: "okonkwoRole",
     author: "Grace Okonkwo",
-    role: "Booked Casa Limone",
     initials: "GO",
   },
-];
+] as const;
 
-export const NEWSLETTER_COPY = {
-  eyebrow: "The Saturday letter",
-  heading: "Four houses, once a month",
-  body: "New properties, quiet seasons worth booking into, and the occasional rate drop. No more than one email a month, and never a shared list.",
-  placeholder: "you@example.com",
-  cta: "Subscribe",
-  success: "You are on the list. Look out for the next letter.",
-  invalid: "Enter an email address so we know where to send it.",
-  legal: "By subscribing you agree to receive occasional emails from Wanderstay. Unsubscribe any time.",
-};
-
+/**
+ * Keys in the `Stats` namespace. `value` is a raw number — the value message
+ * formats it for the active locale: `t(stat.valueKey, {value: stat.value})`.
+ */
 export const STAT_HIGHLIGHTS = [
-  { value: "48", label: "houses on the list" },
-  { value: "11", label: "countries covered" },
-  { value: "4.91", label: "average guest rating" },
-  { value: "2 hrs", label: "average host reply" },
-];
+  { id: "houses", valueKey: "housesValue", labelKey: "housesLabel", value: 48 },
+  { id: "countries", valueKey: "countriesValue", labelKey: "countriesLabel", value: 11 },
+  { id: "rating", valueKey: "ratingValue", labelKey: "ratingLabel", value: 4.91 },
+  { id: "hostReply", valueKey: "hostReplyValue", labelKey: "hostReplyLabel", value: 2 },
+] as const;

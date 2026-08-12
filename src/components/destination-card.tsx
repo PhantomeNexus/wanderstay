@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Scenery } from "./scenery";
 import { StarIcon } from "./icons";
 import { formatPrice, formatRating } from "@/lib/format";
@@ -10,6 +11,8 @@ interface DestinationCardProps {
 }
 
 export function DestinationCard({ destination, index = 0 }: DestinationCardProps) {
+  const t = useTranslations("DestinationCard");
+  const locale = useLocale();
   const reviews = destination.reviews;
 
   return (
@@ -38,7 +41,7 @@ export function DestinationCard({ destination, index = 0 }: DestinationCardProps
           </div>
           <span className="flex shrink-0 items-center gap-1 text-[13.5px] font-semibold text-ink">
             <StarIcon className="h-3.5 w-3.5 text-accent" />
-            {formatRating(destination.rating)}
+            {formatRating(locale, destination.rating)}
           </span>
         </div>
 
@@ -48,12 +51,16 @@ export function DestinationCard({ destination, index = 0 }: DestinationCardProps
 
         <div className="mt-4 flex items-baseline justify-between border-t border-line pt-4">
           <p className="text-[14px] text-muted">
-            <strong className="text-[16px] font-bold text-ink">
-              {formatPrice(destination.pricePerNight)}
-            </strong>{" "}
-            per night
+            {t.rich("pricePerNight", {
+              price: formatPrice(locale, destination.pricePerNight),
+              amount: (chunks) => (
+                <strong className="text-[16px] font-bold text-ink">{chunks}</strong>
+              ),
+            })}
           </p>
-          <span className="text-[13px] text-faint">{reviews.length + " reviews"}</span>
+          <span className="text-[13px] text-faint">
+            {t("reviewCount", { count: reviews.length })}
+          </span>
         </div>
       </div>
     </Link>

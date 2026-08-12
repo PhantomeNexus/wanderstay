@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { Gallery } from "@/components/gallery";
 import { BookingWidget } from "@/components/booking-widget";
 import { CheckIcon, PinIcon, SparkIcon, StarIcon } from "@/components/icons";
 import { destinations, getDestination } from "@/lib/destinations";
-import { formatLongDate, formatRating } from "@/lib/format";
+import { formatLongDate, formatRating, formatPrice } from "@/lib/format";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export function generateStaticParams() {
   return destinations.map((destination) => ({ slug: destination.slug }));
@@ -14,20 +15,21 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "DestinationDetail" });
   const destination = getDestination(slug);
 
   if (!destination) {
     return {
-      title: "House not found",
-      description: "We could not find that house. Browse the full Wanderstay collection instead.",
+      title: t("metaNotFoundTitle"),
+      description: t("metaNotFoundDescription"),
     };
   }
 
   return {
-    title: destination.name + " — " + destination.location,
+    title: t("metaTitle", { name: destination.name, location: destination.location }),
     description: destination.summary,
   };
 }
@@ -35,9 +37,11 @@ export async function generateMetadata({
 export default async function DestinationDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("DestinationDetail");
   const destination = getDestination(slug);
 
   if (!destination) {
@@ -51,13 +55,13 @@ export default async function DestinationDetailPage({
 
   return (
     <div className="shell py-8 md:py-12">
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13.5px] text-muted">
+      <nav aria-label={t("breadcrumbLabel")} className="flex items-center gap-2 text-[13.5px] text-muted">
         <Link href="/" className="transition-colors hover:text-accent">
-          Home
+          {t("breadcrumbHome")}
         </Link>
         <span aria-hidden="true">/</span>
         <Link href="/destinations" className="transition-colors hover:text-accent">
-          Destinations
+          {t("breadcrumbDestinations")}
         </Link>
         <span aria-hidden="true">/</span>
         <span className="text-ink">{destination.name}</span>
@@ -74,7 +78,10 @@ export default async function DestinationDetailPage({
           </span>
           <span className="flex items-center gap-1.5 text-[13.5px] font-semibold text-ink">
             <StarIcon className="h-3.5 w-3.5 text-accent" />
-            {formatRating(destination.rating) + " · " + reviews.length + " reviews"}
+            {t("ratingWithReviews", {
+              rating: formatRating(locale, destination.rating),
+              count: reviews.length,
+            })}
           </span>
         </div>
 
@@ -94,19 +101,19 @@ export default async function DestinationDetailPage({
         <div>
           <section>
             <div className="flex flex-wrap gap-x-8 gap-y-3 border-b border-line pb-8 text-[14.5px] text-ink-soft">
-              <span>{destination.maxGuests + " guests"}</span>
+              <span>{t("guestCount", { count: destination.maxGuests })}</span>
               <span aria-hidden="true" className="text-faint">
                 ·
               </span>
-              <span>{destination.bedrooms + " bedrooms"}</span>
+              <span>{t("bedroomCount", { count: destination.bedrooms })}</span>
               <span aria-hidden="true" className="text-faint">
                 ·
               </span>
-              <span>{destination.beds + " beds"}</span>
+              <span>{t("bedCount", { count: destination.beds })}</span>
               <span aria-hidden="true" className="text-faint">
                 ·
               </span>
-              <span>{destination.baths + " bathrooms"}</span>
+              <span>{t("bathroomCount", { count: destination.baths })}</span>
             </div>
 
             <div className="mt-8 space-y-5">
@@ -132,7 +139,7 @@ export default async function DestinationDetailPage({
 
           <section className="mt-12 border-t border-line pt-12">
             <h2 className="text-[22px] font-bold tracking-tight text-ink">
-              What this house offers
+              {t("amenitiesHeading")}
             </h2>
             <ul className="mt-6 grid gap-x-8 gap-y-3.5 sm:grid-cols-2">
               {destination.amenities.map((amenity) => (
@@ -145,7 +152,7 @@ export default async function DestinationDetailPage({
           </section>
 
           <section className="mt-12 border-t border-line pt-12">
-            <h2 className="text-[22px] font-bold tracking-tight text-ink">Your host</h2>
+            <h2 className="text-[22px] font-bold tracking-tight text-ink">{t("hostHeading")}</h2>
             <div className="mt-6 flex flex-col gap-6 rounded-2xl border border-line bg-surface p-6 sm:flex-row sm:items-start">
               <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-accent-soft text-[19px] font-bold text-accent">
                 {destination.host.name.charAt(0)}
@@ -153,7 +160,10 @@ export default async function DestinationDetailPage({
               <div>
                 <h3 className="text-[17px] font-semibold text-ink">{destination.host.name}</h3>
                 <p className="mt-1 text-[13.5px] text-muted">
-                  {"Hosting since " + destination.host.since + " · Replies " + destination.host.responseTime}
+                  {t("hostMeta", {
+                    since: destination.host.since,
+                    responseTime: destination.host.responseTime,
+                  })}
                 </p>
                 <p className="mt-4 text-[14.5px] leading-relaxed text-ink-soft">
                   {destination.host.bio}
@@ -162,7 +172,7 @@ export default async function DestinationDetailPage({
                   type="button"
                   className="mt-5 rounded-full border border-line-strong px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {"Message " + destination.host.name.split(" ")[0]}
+                  {t("messageHostCta", { name: destination.host.name.split(" ")[0] })}
                 </button>
               </div>
             </div>
@@ -171,11 +181,11 @@ export default async function DestinationDetailPage({
           <section className="mt-12 border-t border-line pt-12">
             <h2 className="flex flex-wrap items-center gap-2 text-[22px] font-bold tracking-tight text-ink">
               <StarIcon className="h-5 w-5 text-accent" />
-              {formatRating(destination.rating)}
+              {formatRating(locale, destination.rating)}
               <span className="text-muted" aria-hidden="true">
                 ·
               </span>
-              <span>{reviews.length + " reviews"}</span>
+              <span>{t("reviewCount", { count: reviews.length })}</span>
             </h2>
 
             <div className="mt-6 space-y-5">
@@ -191,7 +201,7 @@ export default async function DestinationDetailPage({
                       </span>
                       <div>
                         <p className="text-[14.5px] font-semibold text-ink">{review.author}</p>
-                        <p className="text-[13px] text-muted">{formatLongDate(review.date)}</p>
+                        <p className="text-[13px] text-muted">{formatLongDate(locale, review.date)}</p>
                       </div>
                     </div>
                     <div className="flex gap-0.5 text-accent">
@@ -207,7 +217,7 @@ export default async function DestinationDetailPage({
           </section>
 
           <section className="mt-12 border-t border-line pt-12">
-            <h2 className="text-[22px] font-bold tracking-tight text-ink">Things to know</h2>
+            <h2 className="text-[22px] font-bold tracking-tight text-ink">{t("houseRulesHeading")}</h2>
             <ul className="mt-6 space-y-3">
               {destination.houseRules.map((rule) => (
                 <li key={rule} className="flex items-start gap-3 text-[14.5px] text-ink-soft">
@@ -227,7 +237,7 @@ export default async function DestinationDetailPage({
       {otherHouses.length > 0 ? (
         <section className="mt-16 border-t border-line pt-12">
           <h2 className="text-[22px] font-bold tracking-tight text-ink">
-            {"More houses in " + destination.region}
+            {t("moreHousesInRegion", { region: destination.region })}
           </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {otherHouses.map((house) => (
@@ -239,8 +249,10 @@ export default async function DestinationDetailPage({
                 <h3 className="text-[15.5px] font-semibold text-ink">{house.name}</h3>
                 <p className="mt-1 text-[13.5px] text-muted">{house.location}</p>
                 <p className="mt-3 text-[13.5px] text-ink-soft">
-                  <strong className="font-semibold text-ink">${house.pricePerNight}</strong> per
-                  night
+                  {t.rich("nearbyPricePerNight", {
+                    price: formatPrice(locale, house.pricePerNight),
+                    amount: (chunks) => <strong className="font-semibold text-ink">{chunks}</strong>,
+                  })}
                 </p>
               </Link>
             ))}

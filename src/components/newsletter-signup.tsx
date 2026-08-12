@@ -1,10 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { CheckIcon } from "./icons";
-import { NEWSLETTER_COPY } from "@/lib/site-config";
 
 export function NewsletterSignup() {
+  const t = useTranslations("Newsletter");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle");
 
@@ -25,13 +26,13 @@ export function NewsletterSignup() {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <p className="text-[13px] font-semibold tracking-wide text-accent uppercase">
-              {NEWSLETTER_COPY.eyebrow}
+              {t("eyebrow")}
             </p>
             <h2 className="mt-3 text-[30px] leading-tight font-bold tracking-tight text-canvas md:text-[36px]">
-              {NEWSLETTER_COPY.heading}
+              {t("heading")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-canvas/70">
-              {NEWSLETTER_COPY.body}
+              {t("body")}
             </p>
           </div>
 
@@ -41,13 +42,13 @@ export function NewsletterSignup() {
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-white">
                   <CheckIcon className="h-4 w-4" />
                 </span>
-                <p className="text-[15px] font-medium text-canvas">{NEWSLETTER_COPY.success}</p>
+                <p className="text-[15px] font-medium text-canvas">{t("successMessage")}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
                 <div className="flex-1">
                   <label htmlFor="newsletter-email" className="sr-only">
-                    Email address
+                    {t("emailFieldLabel")}
                   </label>
                   <input
                     id="newsletter-email"
@@ -57,25 +58,23 @@ export function NewsletterSignup() {
                       setEmail(event.target.value);
                       setStatus("idle");
                     }}
-                    placeholder={NEWSLETTER_COPY.placeholder}
-                    aria-label="Email address for the Saturday letter"
+                    placeholder={t("emailPlaceholder")}
+                    aria-label={t("emailFieldAriaLabel")}
                     className="w-full rounded-full border border-canvas/20 bg-canvas/10 px-5 py-3.5 text-[15px] text-canvas outline-none placeholder:text-canvas/40 focus:border-accent"
                   />
                   {status === "invalid" ? (
-                    <p className="mt-2 pl-2 text-[13px] text-accent">{NEWSLETTER_COPY.invalid}</p>
+                    <p className="mt-2 pl-2 text-[13px] text-accent">{t("invalidEmailError")}</p>
                   ) : null}
                 </div>
                 <button
                   type="submit"
                   className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-dark"
                 >
-                  {NEWSLETTER_COPY.cta}
+                  {t("subscribeAction")}
                 </button>
               </form>
             )}
-            <p className="mt-4 text-[12.5px] leading-relaxed text-canvas/45">
-              {NEWSLETTER_COPY.legal}
-            </p>
+            <p className="mt-4 text-[12.5px] leading-relaxed text-canvas/45">{t("legalNote")}</p>
           </div>
         </div>
       </div>

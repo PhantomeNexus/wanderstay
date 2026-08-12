@@ -7,3 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Internationalization
+
+This project uses next-intl. Every user-visible string must be wrapped before a
+task is complete. The authoritative rules — API decision tree, plurals, number
+and date formatting, locale-aware navigation, and what not to wrap — live in
+`.agents/globalize-rules.md`. Read it before adding or editing UI copy.
