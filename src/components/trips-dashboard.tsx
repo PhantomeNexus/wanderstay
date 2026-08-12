@@ -2,12 +2,14 @@
 
 import { Link } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Scenery } from "./scenery";
 import { CheckIcon, CloseIcon } from "./icons";
 import { getDestination, getTripsByStatus } from "@/lib/destinations";
 import { getStatusDetail, getStatusLabel, getStatusMessage } from "@/lib/booking";
 import { formatDateRange, formatLongDate, formatPrice } from "@/lib/format";
 import { EMPTY_STATES, TOAST_MESSAGES, TRIP_ACTIONS, TRIP_TABS } from "@/lib/notifications";
+import type { ToastKey } from "@/lib/notifications";
 import { currentUser } from "@/lib/user";
 import type { Trip } from "@/lib/types";
 
@@ -18,9 +20,13 @@ const STATUS_STYLES: Record<string, string> = {
   cancelled: "bg-raised text-muted",
 };
 
+type TripTabId = (typeof TRIP_TABS)[number]["id"];
+
 export function TripsDashboard() {
-  const [tab, setTab] = useState("upcoming");
-  const [toast, setToast] = useState("");
+  const t = useTranslations("Trips");
+  const tToasts = useTranslations("Toasts");
+  const [tab, setTab] = useState<TripTabId>("upcoming");
+  const [toast, setToast] = useState<ToastKey | "">("");
 
   useEffect(() => {
     if (!toast) {
@@ -31,13 +37,13 @@ export function TripsDashboard() {
   }, [toast]);
 
   const visible = getTripsByStatus(tab);
-  const emptyState = EMPTY_STATES[tab as keyof typeof EMPTY_STATES];
+  const emptyState = EMPTY_STATES[tab];
 
   return (
     <>
       <div
         role="tablist"
-        aria-label="Filter your trips by status"
+        aria-label={t("tabsAriaLabel")}
         className="flex gap-1 overflow-x-auto rounded-full border border-line bg-surface p-1.5 no-scrollbar"
       >
         {TRIP_TABS.map((item) => {
@@ -55,7 +61,7 @@ export function TripsDashboard() {
                 (active ? "bg-ink text-canvas" : "text-ink-soft hover:bg-raised")
               }
             >
-              {item.label + " (" + count + ")"}
+              {t(item.labelKey, { count })}
             </button>
           );
         })}
@@ -69,15 +75,15 @@ export function TripsDashboard() {
         </div>
       ) : (
         <div className="mt-8 rounded-2xl border border-dashed border-line-strong bg-surface px-6 py-16 text-center">
-          <h3 className="text-[18px] font-semibold text-ink">{emptyState.heading}</h3>
+          <h3 className="text-[18px] font-semibold text-ink">{t(emptyState.heading)}</h3>
           <p className="mx-auto mt-3 max-w-md text-[14.5px] leading-relaxed text-muted">
-            {emptyState.body}
+            {t(emptyState.body)}
           </p>
           <Link
             href="/destinations"
             className="mt-6 inline-block rounded-full bg-accent px-6 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-accent-dark"
           >
-            {emptyState.cta}
+            {t(emptyState.cta)}
           </Link>
         </div>
       )}
@@ -90,11 +96,11 @@ export function TripsDashboard() {
           <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-accent text-white">
             <CheckIcon className="h-4 w-4" />
           </span>
-          <p className="flex-1 text-[14px] font-medium text-canvas">{toast}</p>
+          <p className="flex-1 text-[14px] font-medium text-canvas">{tToasts(toast)}</p>
           <button
             type="button"
             onClick={() => setToast("")}
-            aria-label="Dismiss this notification"
+            aria-label={t("toastDismissLabel")}
             className="text-canvas/60 transition-colors hover:text-canvas"
           >
             <CloseIcon className="h-4 w-4" />
@@ -105,16 +111,20 @@ export function TripsDashboard() {
   );
 }
 
-function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) => void }) {
+function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: ToastKey) => void }) {
+  const t = useTranslations("Trips");
+  const tStatus = useTranslations("BookingStatus");
   const destination = getDestination(trip.slug);
 
   if (!destination) {
     return null;
   }
 
-  const statusLabel = getStatusLabel(trip.status);
-  const statusMessage = getStatusMessage(trip.status);
-  const statusDetail = getStatusDetail(trip.status, destination.host.name);
+  const statusLabel = tStatus(getStatusLabel(trip.status));
+  const statusMessage = tStatus(getStatusMessage(trip.status));
+  const statusDetail = tStatus(getStatusDetail(trip.status), {
+    hostName: destination.host.name,
+  });
   const isPast = trip.status === "completed";
 
   return (
@@ -155,7 +165,7 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
           <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-5 text-[14px]">
             <div>
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
-                Dates
+                {t("datesLabel")}
               </dt>
               <dd className="mt-1 font-medium text-ink">
                 {formatDateRange(trip.checkIn, trip.checkOut)}
@@ -163,19 +173,21 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
             </div>
             <div>
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
-                Guests
+                {t("guestsLabel")}
               </dt>
-              <dd className="mt-1 font-medium text-ink">{trip.guests + " guests"}</dd>
+              <dd className="mt-1 font-medium text-ink">
+                {t("guestsValue", { count: trip.guests })}
+              </dd>
             </div>
             <div>
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
-                Total
+                {t("totalLabel")}
               </dt>
               <dd className="mt-1 font-medium text-ink">{formatPrice(trip.total)}</dd>
             </div>
             <div>
               <dt className="text-[12px] font-semibold tracking-wide text-muted uppercase">
-                Booked
+                {t("bookedLabel")}
               </dt>
               <dd className="mt-1 font-medium text-ink">{formatLongDate(trip.bookedOn)}</dd>
             </div>
@@ -190,7 +202,7 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
               href={"/destinations/" + destination.slug}
               className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
             >
-              {TRIP_ACTIONS.viewHouse}
+              {t(TRIP_ACTIONS.viewHouse)}
             </Link>
 
             {isPast ? (
@@ -200,14 +212,14 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
                   onClick={() => onToast(TOAST_MESSAGES.reviewReminder)}
                   className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {TRIP_ACTIONS.leaveReview}
+                  {t(TRIP_ACTIONS.leaveReview)}
                 </button>
                 <button
                   type="button"
                   onClick={() => onToast(TOAST_MESSAGES.receiptSent)}
                   className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {TRIP_ACTIONS.downloadReceipt}
+                  {t(TRIP_ACTIONS.downloadReceipt)}
                 </button>
               </>
             ) : (
@@ -217,21 +229,21 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
                   onClick={() => onToast(TOAST_MESSAGES.changeRequested)}
                   className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {TRIP_ACTIONS.requestChange}
+                  {t(TRIP_ACTIONS.requestChange)}
                 </button>
                 <button
                   type="button"
                   onClick={() => onToast(TOAST_MESSAGES.hostMessaged)}
                   className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {TRIP_ACTIONS.messageHost}
+                  {t(TRIP_ACTIONS.messageHost)}
                 </button>
                 <button
                   type="button"
                   onClick={() => onToast(TOAST_MESSAGES.detailsCopied)}
                   className="rounded-full border border-line-strong px-4 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
                 >
-                  {TRIP_ACTIONS.copyReference}
+                  {t(TRIP_ACTIONS.copyReference)}
                 </button>
               </>
             )}
@@ -243,11 +255,16 @@ function TripCard({ trip, onToast }: { trip: Trip; onToast: (message: string) =>
 }
 
 export function TripsGreeting() {
+  const t = useTranslations("Trips");
+
   return (
     <p className="mt-3 text-[16px] leading-relaxed text-muted">
-      {"Welcome back, " + currentUser.firstName + ". "}
-      You have <strong className="font-semibold text-ink">{currentUser.savedCount + " saved houses"}</strong> and a
-      member account since {currentUser.memberSince}.
+      {t.rich("greeting", {
+        firstName: currentUser.firstName,
+        savedCount: currentUser.savedCount,
+        memberSince: currentUser.memberSince,
+        saved: (chunks) => <strong className="font-semibold text-ink">{chunks}</strong>,
+      })}
     </p>
   );
 }

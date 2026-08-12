@@ -1,13 +1,16 @@
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { WanderstayMark } from "./scenery";
 import {
   FOOTER_COLUMNS,
   FOOTER_LEGAL,
-  FOOTER_NOTE,
+  FOOTER_NOTE_KEY,
   SITE_NAME,
 } from "@/lib/site-config";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const t = await getTranslations("Footer");
+
   return (
     <footer className="mt-24 border-t border-line bg-surface">
       <div className="shell py-14 md:py-16">
@@ -17,22 +20,22 @@ export function SiteFooter() {
               <WanderstayMark className="h-8 w-8" />
               <span className="text-[17px] font-bold tracking-tight text-ink">{SITE_NAME}</span>
             </div>
-            <p className="mt-4 text-[14px] leading-relaxed text-muted">{FOOTER_NOTE}</p>
+            <p className="mt-4 text-[14px] leading-relaxed text-muted">{t(FOOTER_NOTE_KEY)}</p>
           </div>
 
           {FOOTER_COLUMNS.map((column) => (
-            <div key={column.heading}>
+            <div key={column.id}>
               <h3 className="text-[13px] font-semibold tracking-wide text-ink uppercase">
-                {column.heading}
+                {t(column.headingKey)}
               </h3>
               <ul className="mt-4 space-y-2.5">
-                {column.links.map((link, index) => (
-                  <li key={column.heading + index}>
+                {column.links.map((link) => (
+                  <li key={link.key}>
                     <Link
                       href={link.href}
                       className="text-[14px] text-muted transition-colors hover:text-accent"
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
@@ -42,17 +45,15 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-[13px] text-faint">
-            © 2026 Wanderstay Travel AB. Registered in Stockholm, Sweden.
-          </p>
+          <p className="text-[13px] text-faint">{t("copyright")}</p>
           <div className="flex flex-wrap items-center gap-5">
             {FOOTER_LEGAL.map((item) => (
               <Link
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 className="text-[13px] text-faint transition-colors hover:text-ink"
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             ))}
           </div>

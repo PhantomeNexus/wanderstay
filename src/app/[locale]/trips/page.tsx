@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import { TripsDashboard, TripsGreeting } from "@/components/trips-dashboard";
 import { currentUser } from "@/lib/user";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "My Trips",
-  description:
-    "Every stay you have booked with Wanderstay — upcoming, past and cancelled — with your host details and booking references in one place.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Trips" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
 
 export default async function TripsPage({
   params,
@@ -16,16 +24,17 @@ export default async function TripsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("Trips");
 
   return (
     <div className="shell py-12 md:py-16">
       <header className="flex flex-wrap items-start justify-between gap-6">
         <div className="max-w-2xl">
           <p className="text-[13px] font-semibold tracking-wide text-accent uppercase">
-            Your account
+            {t("eyebrow")}
           </p>
           <h1 className="mt-3 text-[34px] leading-tight font-bold tracking-tight text-ink md:text-[42px]">
-            My Trips
+            {t("heading")}
           </h1>
           <TripsGreeting />
         </div>

@@ -1,21 +1,13 @@
 "use client";
 
 import { useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { CalendarIcon, GuestsIcon, PinIcon, SearchIcon } from "./icons";
 import { destinations } from "@/lib/destinations";
 
-const SEARCH_LABELS = {
-  destination: "Where to",
-  destinationPlaceholder: "Anywhere in Europe",
-  checkIn: "Check-in",
-  checkOut: "Check-out",
-  guests: "Guests",
-  submit: "Search stays",
-  submitShort: "Search",
-};
-
 export function SearchBar() {
+  const t = useTranslations("Search");
   const router = useRouter();
   const [where, setWhere] = useState("");
   const [checkIn, setCheckIn] = useState("2026-09-12");
@@ -42,14 +34,14 @@ export function SearchBar() {
         <label className="rounded-xl px-4 py-3 transition-colors hover:bg-raised/60 md:rounded-full">
           <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink">
             <PinIcon className="h-3.5 w-3.5 text-accent" />
-            {SEARCH_LABELS.destination}
+            {t("destinationLabel")}
           </span>
           <input
             type="text"
             value={where}
             onChange={(event) => setWhere(event.target.value)}
-            placeholder={SEARCH_LABELS.destinationPlaceholder}
-            aria-label="Search by destination or house name"
+            placeholder={t("destinationPlaceholder")}
+            aria-label={t("destinationFieldLabel")}
             className="mt-1 w-full bg-transparent text-[14px] text-ink-soft outline-none placeholder:text-faint"
           />
         </label>
@@ -57,13 +49,13 @@ export function SearchBar() {
         <label className="rounded-xl px-4 py-3 transition-colors hover:bg-raised/60 md:rounded-full md:border-l md:border-line">
           <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink">
             <CalendarIcon className="h-3.5 w-3.5 text-accent" />
-            {SEARCH_LABELS.checkIn}
+            {t("checkInLabel")}
           </span>
           <input
             type="date"
             value={checkIn}
             onChange={(event) => setCheckIn(event.target.value)}
-            aria-label="Check-in date"
+            aria-label={t("checkInFieldLabel")}
             className="mt-1 w-full bg-transparent text-[14px] text-ink-soft outline-none"
           />
         </label>
@@ -71,13 +63,13 @@ export function SearchBar() {
         <label className="rounded-xl px-4 py-3 transition-colors hover:bg-raised/60 md:rounded-full md:border-l md:border-line">
           <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink">
             <CalendarIcon className="h-3.5 w-3.5 text-accent" />
-            {SEARCH_LABELS.checkOut}
+            {t("checkOutLabel")}
           </span>
           <input
             type="date"
             value={checkOut}
             onChange={(event) => setCheckOut(event.target.value)}
-            aria-label="Check-out date"
+            aria-label={t("checkOutFieldLabel")}
             className="mt-1 w-full bg-transparent text-[14px] text-ink-soft outline-none"
           />
         </label>
@@ -85,17 +77,17 @@ export function SearchBar() {
         <label className="rounded-xl px-4 py-3 transition-colors hover:bg-raised/60 md:rounded-full md:border-l md:border-line">
           <span className="flex items-center gap-1.5 text-[12px] font-semibold text-ink">
             <GuestsIcon className="h-3.5 w-3.5 text-accent" />
-            {SEARCH_LABELS.guests}
+            {t("guestsLabel")}
           </span>
           <select
             value={guests}
             onChange={(event) => setGuests(Number(event.target.value))}
-            aria-label="Number of guests"
+            aria-label={t("guestsFieldLabel")}
             className="mt-1 w-full bg-transparent text-[14px] text-ink-soft outline-none"
           >
             {[1, 2, 3, 4, 5, 6, 8, 10].map((count) => (
               <option key={count} value={count}>
-                {count + " guests"}
+                {t("guestsOption", { count })}
               </option>
             ))}
           </select>
@@ -104,12 +96,12 @@ export function SearchBar() {
         <button
           type="button"
           onClick={handleSearch}
-          title="Search available stays"
+          title={t("submitTitle")}
           className="flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-[14px] font-semibold text-white transition-colors hover:bg-accent-dark md:mr-1 md:rounded-full"
         >
           <SearchIcon className="h-4 w-4" />
-          <span className="md:hidden lg:inline">{SEARCH_LABELS.submit}</span>
-          <span className="hidden md:inline lg:hidden">{SEARCH_LABELS.submitShort}</span>
+          <span className="md:hidden lg:inline">{t("submit")}</span>
+          <span className="hidden md:inline lg:hidden">{t("submitShort")}</span>
         </button>
       </div>
     </div>

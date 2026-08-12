@@ -2,6 +2,7 @@
 
 import { Link, useRouter } from "@/i18n/navigation";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Scenery } from "./scenery";
 import { CheckIcon, ShieldIcon } from "./icons";
 import { guestDetailsConfig, orderSummaryConfig, paymentConfig } from "@/lib/form-config";
@@ -20,6 +21,9 @@ interface CheckoutFlowProps {
 type Errors = Record<string, string>;
 
 export function CheckoutFlow({ destination, checkIn, checkOut, guests }: CheckoutFlowProps) {
+  const t = useTranslations("Checkout");
+  const tPayment = useTranslations("Payment");
+  const tSummary = useTranslations("OrderSummary");
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
@@ -28,7 +32,9 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
   const [lastName, setLastName] = useState(currentUser.lastName);
   const [email, setEmail] = useState(currentUser.email);
   const [phone, setPhone] = useState(currentUser.phone);
-  const [arrivalTime, setArrivalTime] = useState(guestDetailsConfig.fields.arrivalTime.options[1]);
+  const [arrivalTime, setArrivalTime] = useState<string>(
+    guestDetailsConfig.fields.arrivalTime.options[1],
+  );
   const [specialRequests, setSpecialRequests] = useState("");
 
   const [cardName, setCardName] = useState("");
@@ -48,32 +54,34 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
     const next: Errors = {};
 
     if (firstName.trim().length === 0) {
-      next.firstName = fields.firstName.required;
+      next.firstName = t(fields.firstName.required);
     } else if (firstName.trim().length < 2) {
-      next.firstName = fields.firstName.tooShort;
+      next.firstName = t(fields.firstName.tooShort);
     }
 
     if (lastName.trim().length === 0) {
-      next.lastName = fields.lastName.required;
+      next.lastName = t(fields.lastName.required);
     } else if (lastName.trim().length < 2) {
-      next.lastName = fields.lastName.tooShort;
+      next.lastName = t(fields.lastName.tooShort);
     }
 
     if (email.trim().length === 0) {
-      next.email = fields.email.required;
+      next.email = t(fields.email.required);
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      next.email = fields.email.invalid;
+      next.email = t(fields.email.invalid);
     }
 
     const digits = phone.replace(/[^0-9]/g, "");
     if (phone.trim().length === 0) {
-      next.phone = fields.phone.required;
+      next.phone = t(fields.phone.required);
     } else if (digits.length < 7) {
-      next.phone = fields.phone.invalid;
+      next.phone = t(fields.phone.invalid);
     }
 
-    if (specialRequests.length > 500) {
-      next.specialRequests = fields.specialRequests.tooLong;
+    if (specialRequests.length > fields.specialRequests.maxLength) {
+      next.specialRequests = t(fields.specialRequests.tooLong, {
+        max: fields.specialRequests.maxLength,
+      });
     }
 
     setErrors(next);
@@ -84,36 +92,36 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
     const next: Errors = {};
 
     if (cardName.trim().length === 0) {
-      next.cardName = payFields.cardName.required;
+      next.cardName = tPayment(payFields.cardName.required);
     }
 
     const cardDigits = cardNumber.replace(/[^0-9]/g, "");
     if (cardDigits.length === 0) {
-      next.cardNumber = payFields.cardNumber.required;
+      next.cardNumber = tPayment(payFields.cardNumber.required);
     } else if (cardDigits.length !== 16) {
-      next.cardNumber = payFields.cardNumber.invalid;
+      next.cardNumber = tPayment(payFields.cardNumber.invalid);
     }
 
     if (expiry.trim().length === 0) {
-      next.expiry = payFields.expiry.required;
+      next.expiry = tPayment(payFields.expiry.required);
     } else if (!/^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(expiry)) {
-      next.expiry = payFields.expiry.invalid;
+      next.expiry = tPayment(payFields.expiry.invalid);
     } else if (Number(expiry.slice(3)) < 26) {
-      next.expiry = payFields.expiry.expired;
+      next.expiry = tPayment(payFields.expiry.expired);
     }
 
     if (cvc.trim().length === 0) {
-      next.cvc = payFields.cvc.required;
+      next.cvc = tPayment(payFields.cvc.required);
     } else if (!/^[0-9]{3}$/.test(cvc)) {
-      next.cvc = payFields.cvc.invalid;
+      next.cvc = tPayment(payFields.cvc.invalid);
     }
 
     if (billingPostcode.trim().length === 0) {
-      next.billingPostcode = payFields.billingPostcode.required;
+      next.billingPostcode = tPayment(payFields.billingPostcode.required);
     }
 
     if (!termsAccepted) {
-      next.terms = payFields.terms.required;
+      next.terms = tPayment(payFields.terms.required);
     }
 
     setErrors(next);
@@ -157,34 +165,39 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14">
       <div>
         <ol className="flex items-center gap-4">
-          <StepPill index={1} label="Guest details" active={step === 1} done={step > 1} />
+          <StepPill
+            index={1}
+            label={t("stepGuestDetailsLabel")}
+            active={step === 1}
+            done={step > 1}
+          />
           <span className="h-px flex-1 bg-line-strong" aria-hidden="true" />
-          <StepPill index={2} label="Payment" active={step === 2} done={false} />
+          <StepPill index={2} label={t("stepPaymentLabel")} active={step === 2} done={false} />
         </ol>
 
         {step === 1 ? (
           <form onSubmit={handleContinue} noValidate className="fade-up mt-9">
             <p className="text-[13px] font-semibold tracking-wide text-accent uppercase">
-              {guestDetailsConfig.stepLabel}
+              {t(guestDetailsConfig.stepLabel, guestDetailsConfig.step)}
             </p>
             <h2 className="mt-2 text-[26px] font-bold tracking-tight text-ink">
-              {guestDetailsConfig.heading}
+              {t(guestDetailsConfig.heading)}
             </h2>
-            <p className="mt-2 text-[14.5px] text-muted">{guestDetailsConfig.subheading}</p>
+            <p className="mt-2 text-[14.5px] text-muted">{t(guestDetailsConfig.subheading)}</p>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <Field
                 id="firstName"
-                label={fields.firstName.label}
-                placeholder={fields.firstName.placeholder}
+                label={t(fields.firstName.label)}
+                placeholder={t(fields.firstName.placeholder)}
                 value={firstName}
                 onChange={setFirstName}
                 error={errors.firstName}
               />
               <Field
                 id="lastName"
-                label={fields.lastName.label}
-                placeholder={fields.lastName.placeholder}
+                label={t(fields.lastName.label)}
+                placeholder={t(fields.lastName.placeholder)}
                 value={lastName}
                 onChange={setLastName}
                 error={errors.lastName}
@@ -192,9 +205,9 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
               <Field
                 id="email"
                 type="email"
-                label={fields.email.label}
-                placeholder={fields.email.placeholder}
-                helper={fields.email.helper}
+                label={t(fields.email.label)}
+                placeholder={t(fields.email.placeholder)}
+                helper={t(fields.email.helper)}
                 value={email}
                 onChange={setEmail}
                 error={errors.email}
@@ -202,9 +215,9 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
               <Field
                 id="phone"
                 type="tel"
-                label={fields.phone.label}
-                placeholder={fields.phone.placeholder}
-                helper={fields.phone.helper}
+                label={t(fields.phone.label)}
+                placeholder={t(fields.phone.placeholder)}
+                helper={t(fields.phone.helper)}
                 value={phone}
                 onChange={setPhone}
                 error={errors.phone}
@@ -213,7 +226,7 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
 
             <div className="mt-5">
               <label htmlFor="arrivalTime" className="block text-[14px] font-semibold text-ink">
-                {fields.arrivalTime.label}
+                {t(fields.arrivalTime.label)}
               </label>
               <select
                 id="arrivalTime"
@@ -223,11 +236,11 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
               >
                 {fields.arrivalTime.options.map((option) => (
                   <option key={option} value={option}>
-                    {option}
+                    {t(option)}
                   </option>
                 ))}
               </select>
-              <p className="mt-1.5 text-[13px] text-muted">{fields.arrivalTime.helper}</p>
+              <p className="mt-1.5 text-[13px] text-muted">{t(fields.arrivalTime.helper)}</p>
             </div>
 
             <div className="mt-5">
@@ -235,19 +248,24 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
                 htmlFor="specialRequests"
                 className="block text-[14px] font-semibold text-ink"
               >
-                {fields.specialRequests.label}
+                {t(fields.specialRequests.label)}
               </label>
               <textarea
                 id="specialRequests"
                 rows={4}
                 value={specialRequests}
                 onChange={(event) => setSpecialRequests(event.target.value)}
-                placeholder={fields.specialRequests.placeholder}
+                placeholder={t(fields.specialRequests.placeholder)}
                 className="mt-2 w-full resize-y rounded-xl border border-line-strong bg-surface px-4 py-3 text-[14.5px] text-ink outline-none transition-colors placeholder:text-faint focus:border-accent"
               />
               <div className="mt-1.5 flex items-center justify-between gap-4">
-                <p className="text-[13px] text-muted">{fields.specialRequests.helper}</p>
-                <p className="text-[13px] text-faint">{specialRequests.length + " / 500"}</p>
+                <p className="text-[13px] text-muted">{t(fields.specialRequests.helper)}</p>
+                <p className="text-[13px] text-faint">
+                  {t(fields.specialRequests.counter, {
+                    count: specialRequests.length,
+                    max: fields.specialRequests.maxLength,
+                  })}
+                </p>
               </div>
               {errors.specialRequests ? (
                 <p className="mt-1.5 text-[13px] font-medium text-accent">
@@ -261,39 +279,39 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
                 type="submit"
                 className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-dark"
               >
-                {guestDetailsConfig.submit}
+                {t(guestDetailsConfig.submit)}
               </button>
               <Link
                 href={"/destinations/" + destination.slug}
                 className="text-[14.5px] font-medium text-muted transition-colors hover:text-ink"
               >
-                {guestDetailsConfig.back}
+                {t(guestDetailsConfig.back)}
               </Link>
             </div>
           </form>
         ) : (
           <form onSubmit={handleConfirm} noValidate className="fade-up mt-9">
             <p className="text-[13px] font-semibold tracking-wide text-accent uppercase">
-              {paymentConfig.stepLabel}
+              {tPayment(paymentConfig.stepLabel, paymentConfig.step)}
             </p>
             <h2 className="mt-2 text-[26px] font-bold tracking-tight text-ink">
-              {paymentConfig.heading}
+              {tPayment(paymentConfig.heading)}
             </h2>
-            <p className="mt-2 text-[14.5px] text-muted">{paymentConfig.subheading}</p>
+            <p className="mt-2 text-[14.5px] text-muted">{tPayment(paymentConfig.subheading)}</p>
 
             <div className="mt-8 grid gap-5">
               <Field
                 id="cardName"
-                label={payFields.cardName.label}
-                placeholder={payFields.cardName.placeholder}
+                label={tPayment(payFields.cardName.label)}
+                placeholder={tPayment(payFields.cardName.placeholder)}
                 value={cardName}
                 onChange={setCardName}
                 error={errors.cardName}
               />
               <Field
                 id="cardNumber"
-                label={payFields.cardNumber.label}
-                placeholder={payFields.cardNumber.placeholder}
+                label={tPayment(payFields.cardNumber.label)}
+                placeholder={tPayment(payFields.cardNumber.placeholder)}
                 value={cardNumber}
                 onChange={setCardNumber}
                 error={errors.cardNumber}
@@ -301,25 +319,25 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
               <div className="grid gap-5 sm:grid-cols-3">
                 <Field
                   id="expiry"
-                  label={payFields.expiry.label}
-                  placeholder={payFields.expiry.placeholder}
+                  label={tPayment(payFields.expiry.label)}
+                  placeholder={tPayment(payFields.expiry.placeholder)}
                   value={expiry}
                   onChange={setExpiry}
                   error={errors.expiry}
                 />
                 <Field
                   id="cvc"
-                  label={payFields.cvc.label}
-                  placeholder={payFields.cvc.placeholder}
-                  helper={payFields.cvc.helper}
+                  label={tPayment(payFields.cvc.label)}
+                  placeholder={tPayment(payFields.cvc.placeholder)}
+                  helper={tPayment(payFields.cvc.helper)}
                   value={cvc}
                   onChange={setCvc}
                   error={errors.cvc}
                 />
                 <Field
                   id="billingPostcode"
-                  label={payFields.billingPostcode.label}
-                  placeholder={payFields.billingPostcode.placeholder}
+                  label={tPayment(payFields.billingPostcode.label)}
+                  placeholder={tPayment(payFields.billingPostcode.placeholder)}
                   value={billingPostcode}
                   onChange={setBillingPostcode}
                   error={errors.billingPostcode}
@@ -335,7 +353,7 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
                 className="mt-0.5 h-4.5 w-4.5 accent-accent"
               />
               <span className="text-[14px] leading-relaxed text-ink-soft">
-                {payFields.terms.label}
+                {tPayment(payFields.terms.label)}
               </span>
             </label>
             {errors.terms ? (
@@ -344,7 +362,7 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
 
             <p className="mt-6 flex items-start gap-2.5 rounded-xl bg-raised px-4 py-3.5 text-[13px] leading-relaxed text-muted">
               <ShieldIcon className="mt-0.5 h-4 w-4 shrink-0 text-positive" />
-              {paymentConfig.secureNote}
+              {tPayment(paymentConfig.secureNote)}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -353,7 +371,9 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
                 disabled={submitting}
                 className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-accent-dark disabled:bg-line-strong disabled:text-muted"
               >
-                {submitting ? paymentConfig.processing : paymentConfig.submit}
+                {submitting
+                  ? tPayment(paymentConfig.processing)
+                  : tPayment(paymentConfig.submit)}
               </button>
               <button
                 type="button"
@@ -363,7 +383,7 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
                 }}
                 className="text-[14.5px] font-medium text-muted transition-colors hover:text-ink"
               >
-                {paymentConfig.back}
+                {tPayment(paymentConfig.back)}
               </button>
             </div>
           </form>
@@ -383,47 +403,71 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
           </div>
 
           <div className="p-6">
-            <h2 className="text-[17px] font-semibold text-ink">{orderSummaryConfig.heading}</h2>
+            <h2 className="text-[17px] font-semibold text-ink">
+              {tSummary(orderSummaryConfig.heading)}
+            </h2>
             <p className="mt-3 text-[15px] font-semibold text-ink">{destination.name}</p>
             <p className="text-[13.5px] text-muted">{destination.location}</p>
 
             <dl className="mt-5 space-y-2.5 border-t border-line pt-5 text-[14px]">
-              <Row label={orderSummaryConfig.checkInLabel} value={formatLongDate(checkIn)} />
-              <Row label={orderSummaryConfig.checkOutLabel} value={formatLongDate(checkOut)} />
-              <Row label={orderSummaryConfig.nightsLabel} value={breakdown.nights + " nights"} />
-              <Row label={orderSummaryConfig.guestsLabel} value={guests + " guests"} />
+              <Row
+                label={tSummary(orderSummaryConfig.checkInLabel)}
+                value={formatLongDate(checkIn)}
+              />
+              <Row
+                label={tSummary(orderSummaryConfig.checkOutLabel)}
+                value={formatLongDate(checkOut)}
+              />
+              <Row
+                label={tSummary(orderSummaryConfig.nightsLabel)}
+                value={tSummary("nightsValue", { count: breakdown.nights })}
+              />
+              <Row
+                label={tSummary(orderSummaryConfig.guestsLabel)}
+                value={tSummary("guestsValue", { count: guests })}
+              />
             </dl>
 
             <dl className="mt-5 space-y-2.5 border-t border-line pt-5 text-[14px]">
               <Row
-                label={formatPrice(destination.pricePerNight) + " × " + breakdown.nights + " nights"}
+                label={tSummary("nightlyRateRow", {
+                  price: formatPrice(destination.pricePerNight),
+                  nights: breakdown.nights,
+                })}
                 value={formatPrice(breakdown.accommodation)}
               />
               <Row
-                label={orderSummaryConfig.cleaningLabel}
+                label={tSummary(orderSummaryConfig.cleaningLabel)}
                 value={formatPrice(breakdown.cleaningFee)}
               />
               <Row
-                label={orderSummaryConfig.serviceLabel}
+                label={tSummary(orderSummaryConfig.serviceLabel)}
                 value={formatPrice(breakdown.serviceFee)}
               />
-              <Row label={orderSummaryConfig.taxLabel} value={formatPrice(breakdown.occupancyTax)} />
+              <Row
+                label={tSummary(orderSummaryConfig.taxLabel)}
+                value={formatPrice(breakdown.occupancyTax)}
+              />
             </dl>
 
             <div className="mt-5 flex items-center justify-between border-t border-line pt-5">
-              <p className="text-[16px] font-semibold text-ink">{orderSummaryConfig.totalLabel}</p>
+              <p className="text-[16px] font-semibold text-ink">
+                {tSummary(orderSummaryConfig.totalLabel)}
+              </p>
               <p className="text-[20px] font-bold text-ink">{formatPrice(breakdown.total)}</p>
             </div>
             <div className="mt-2 flex items-center justify-between">
-              <p className="text-[13.5px] text-muted">{orderSummaryConfig.dueTodayLabel}</p>
+              <p className="text-[13.5px] text-muted">
+                {tSummary(orderSummaryConfig.dueTodayLabel)}
+              </p>
               <p className="text-[13.5px] font-semibold text-positive">
-                {orderSummaryConfig.dueTodayValue}
+                {tSummary(orderSummaryConfig.dueTodayValue)}
               </p>
             </div>
 
             <p className="mt-5 flex items-start gap-2 rounded-xl bg-positive-soft px-3.5 py-3 text-[13px] leading-relaxed text-positive">
               <CheckIcon className="mt-0.5 h-4 w-4 shrink-0" />
-              {orderSummaryConfig.policyNote}
+              {tSummary(orderSummaryConfig.policyNote)}
             </p>
           </div>
         </div>

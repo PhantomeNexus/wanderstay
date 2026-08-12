@@ -7,38 +7,42 @@ export const trips = tripsData as Trip[];
 
 export const TOTAL_STAYS_ON_PLATFORM = 48;
 
+// Filter options carry stable message keys, never translated labels: the label is
+// resolved with `t(option.key)` inside the component (namespace `Filters`).
+// `region` / `tripType` hold the raw data value matched against destinations.json;
+// `null` means "no restriction".
 export const REGION_FILTERS = [
-  "All regions",
-  "Mediterranean",
-  "Northern Europe",
-  "Alpine",
-  "Atlantic Coast",
-  "North Africa",
-];
+  { key: "regionAll", region: null },
+  { key: "regionMediterranean", region: "Mediterranean" },
+  { key: "regionNorthernEurope", region: "Northern Europe" },
+  { key: "regionAlpine", region: "Alpine" },
+  { key: "regionAtlanticCoast", region: "Atlantic Coast" },
+  { key: "regionNorthAfrica", region: "North Africa" },
+] as const;
 
 export const TRIP_TYPE_FILTERS = [
-  "Any trip",
-  "Coastal escape",
-  "Mountain retreat",
-  "City break",
-  "Design stay",
-  "Wellness",
-  "Off-grid",
-];
+  { key: "tripTypeAny", tripType: null },
+  { key: "tripTypeCoastalEscape", tripType: "Coastal escape" },
+  { key: "tripTypeMountainRetreat", tripType: "Mountain retreat" },
+  { key: "tripTypeCityBreak", tripType: "City break" },
+  { key: "tripTypeDesignStay", tripType: "Design stay" },
+  { key: "tripTypeWellness", tripType: "Wellness" },
+  { key: "tripTypeOffGrid", tripType: "Off-grid" },
+] as const;
 
 export const PRICE_FILTERS = [
-  { label: "Any price", min: 0, max: 100000 },
-  { label: "Under $200", min: 0, max: 199 },
-  { label: "$200 to $350", min: 200, max: 350 },
-  { label: "$350 and up", min: 351, max: 100000 },
-];
+  { key: "priceAny", min: 0, max: 100000 },
+  { key: "priceUnder200", min: 0, max: 199 },
+  { key: "price200To350", min: 200, max: 350 },
+  { key: "price350AndUp", min: 351, max: 100000 },
+] as const;
 
 export const SORT_OPTIONS = [
-  "Recommended",
-  "Price: low to high",
-  "Price: high to low",
-  "Top rated",
-];
+  { key: "sortRecommended" },
+  { key: "sortPriceLowToHigh" },
+  { key: "sortPriceHighToLow" },
+  { key: "sortTopRated" },
+] as const;
 
 export function getDestination(slug: string) {
   return destinations.find((destination) => destination.slug === slug);

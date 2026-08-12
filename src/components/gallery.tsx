@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Scenery } from "./scenery";
 import type { Destination } from "@/lib/types";
@@ -9,6 +10,7 @@ interface GalleryProps {
 }
 
 export function Gallery({ destination }: GalleryProps) {
+  const t = useTranslations("Gallery");
   const [active, setActive] = useState(0);
   const frames = destination.gallery;
   const current = frames[active];
@@ -29,7 +31,7 @@ export function Gallery({ destination }: GalleryProps) {
           {current.caption}
         </p>
         <p className="absolute right-4 top-4 rounded-full bg-surface/90 px-3.5 py-1.5 text-[12.5px] font-semibold text-ink backdrop-blur-sm">
-          {active + 1 + " of " + frames.length}
+          {t("photoPosition", { current: active + 1, total: frames.length })}
         </p>
       </div>
 
@@ -40,7 +42,7 @@ export function Gallery({ destination }: GalleryProps) {
             type="button"
             onClick={() => setActive(index)}
             title={frame.caption}
-            aria-label={"View photo: " + frame.caption}
+            aria-label={t("viewPhotoAria", { caption: frame.caption })}
             className={
               "overflow-hidden rounded-xl border-2 transition-colors " +
               (index === active

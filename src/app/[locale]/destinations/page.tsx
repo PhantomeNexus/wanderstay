@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { DestinationExplorer } from "@/components/destination-explorer";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "All destinations",
-  description:
-    "Browse every boutique house on the Wanderstay list — coastal escapes, mountain retreats, design stays and off-grid cabins across Europe and North Africa.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Destinations" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
 
 export default async function DestinationsPage({
   params,
@@ -15,20 +23,18 @@ export default async function DestinationsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("Destinations");
 
   return (
     <div className="shell py-12 md:py-16">
       <header className="max-w-2xl">
         <p className="text-[13px] font-semibold tracking-wide text-accent uppercase">
-          The full collection
+          {t("eyebrow")}
         </p>
         <h1 className="mt-3 text-[34px] leading-tight font-bold tracking-tight text-ink md:text-[44px]">
-          Every house on the list
+          {t("heading")}
         </h1>
-        <p className="mt-4 text-[16px] leading-relaxed text-muted">
-          Filter by region, price and the kind of trip you are planning. Every property here has
-          been stayed in by someone on our team within the last eighteen months.
-        </p>
+        <p className="mt-4 text-[16px] leading-relaxed text-muted">{t("intro")}</p>
       </header>
 
       <div className="mt-10">

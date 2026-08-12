@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import { CheckoutFlow } from "@/components/checkout-flow";
 import { destinations, getDestination } from "@/lib/destinations";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Checkout",
-  description:
-    "Confirm your guest details and payment. Your card is only charged once your Wanderstay host accepts the booking.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Checkout" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
 
 export default async function CheckoutPage({
   params,
@@ -18,6 +26,7 @@ export default async function CheckoutPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("Checkout");
   const query = await searchParams;
 
   const staySlug = typeof query.stay === "string" ? query.stay : destinations[0].slug;
@@ -30,11 +39,13 @@ export default async function CheckoutPage({
     <div className="shell py-12 md:py-16">
       <header className="max-w-2xl">
         <h1 className="text-[32px] leading-tight font-bold tracking-tight text-ink md:text-[40px]">
-          Confirm and pay
+          {t("pageHeading")}
         </h1>
         <p className="mt-3 text-[16px] leading-relaxed text-muted">
-          {"You are booking " + destination.name + " in " + destination.location + "."} Nothing
-          leaves your account until your host accepts.
+          {t("pageIntro", {
+            destinationName: destination.name,
+            location: destination.location,
+          })}
         </p>
       </header>
 

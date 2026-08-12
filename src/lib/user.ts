@@ -1,3 +1,4 @@
+/** Sample account data — identifiers and values, no translatable copy. */
 export const currentUser = {
   firstName: "Sofia",
   lastName: "Nilsson",
@@ -9,11 +10,15 @@ export const currentUser = {
   savedCount: 7,
 };
 
+/**
+ * Message keys in the `Account` namespace — the copy lives in
+ * `messages/{locale}.json`. Resolve with `t(accountMenu.profile)`.
+ */
 export const accountMenu = {
-  greeting: "Welcome back",
-  profile: "Your profile",
-  trips: "My Trips",
-  saved: "Saved houses",
-  settings: "Account settings",
-  signOut: "Log out",
-};
+  greeting: "greeting",
+  profile: "profile",
+  trips: "trips",
+  saved: "saved",
+  settings: "settings",
+  signOut: "signOut",
+} as const;

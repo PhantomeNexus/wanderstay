@@ -2,6 +2,7 @@ import type { Destination, TripStatus } from "./types";
 import { countNights } from "./format";
 
 export const OCCUPANCY_TAX_RATE = 0.045;
+export const MINIMUM_STAY_NIGHTS = 3;
 
 export interface PriceBreakdown {
   nights: number;
@@ -35,79 +36,126 @@ export function buildPriceBreakdown(
   };
 }
 
-export function getStatusMessage(status: TripStatus) {
-  let message;
+/*
+ * The helpers below return message KEYS in the `BookingStatus` namespace, never
+ * translated copy — there is no translation context inside a plain module
+ * function, and a value resolved at module scope would freeze the first locale
+ * that loaded. Resolve at the call site: `t(getStatusLabel(trip.status))`.
+ */
+
+export type StatusMessageKey =
+  | "confirmedMessage"
+  | "pendingMessage"
+  | "completedMessage"
+  | "cancelledMessage"
+  | "unknownMessage";
+
+export function getStatusMessage(status: TripStatus): StatusMessageKey {
+  let key: StatusMessageKey;
 
   if (status === "confirmed") {
-    message = "Your booking is confirmed";
+    key = "confirmedMessage";
   } else if (status === "pending") {
-    message = "Waiting for your host to accept";
+    key = "pendingMessage";
   } else if (status === "completed") {
-    message = "This stay has ended";
+    key = "completedMessage";
   } else if (status === "cancelled") {
-    message = "This booking was cancelled";
+    key = "cancelledMessage";
   } else {
-    message = "We are checking on this booking";
+    key = "unknownMessage";
   }
 
-  return message;
+  return key;
 }
 
-export function getStatusDetail(status: TripStatus, hostName: string) {
+export type StatusDetailKey =
+  | "confirmedDetail"
+  | "pendingDetail"
+  | "completedDetail"
+  | "cancelledDetail";
+
+/** The host name is an ICU argument: `t(getStatusDetail(status), {hostName})`. */
+export function getStatusDetail(status: TripStatus): StatusDetailKey {
   if (status === "confirmed") {
-    return hostName + " has your dates and will be in touch before you travel.";
+    return "confirmedDetail";
   }
 
   if (status === "pending") {
-    return hostName + " has 24 hours to accept. Your card has not been charged yet.";
+    return "pendingDetail";
   }
 
   if (status === "completed") {
-    return "Leave " + hostName + " a review — it takes about a minute.";
+    return "completedDetail";
   }
 
-  return "Any amount already taken has been returned to your card.";
+  return "cancelledDetail";
 }
 
-export function getStatusLabel(status: TripStatus) {
+export type StatusLabelKey =
+  | "confirmedLabel"
+  | "pendingLabel"
+  | "completedLabel"
+  | "cancelledLabel";
+
+export function getStatusLabel(status: TripStatus): StatusLabelKey {
   if (status === "confirmed") {
-    return "Confirmed";
+    return "confirmedLabel";
   }
   if (status === "pending") {
-    return "Awaiting host";
+    return "pendingLabel";
   }
   if (status === "completed") {
-    return "Completed";
+    return "completedLabel";
   }
-  return "Cancelled";
+  return "cancelledLabel";
 }
 
-export function getPaymentResultMessage(result: string) {
-  let message;
+export type PaymentResultKey =
+  | "paymentAuthorised"
+  | "paymentDeclined"
+  | "paymentExpired"
+  | "paymentError";
+
+export function getPaymentResultMessage(result: string): PaymentResultKey {
+  let key: PaymentResultKey;
 
   if (result === "authorised") {
-    message = "Card authorised. Nothing has been charged yet.";
+    key = "paymentAuthorised";
   } else if (result === "declined") {
-    message = "Your bank declined that card. Try another one.";
+    key = "paymentDeclined";
   } else if (result === "expired") {
-    message = "That card has expired. Check the date and try again.";
+    key = "paymentExpired";
   } else {
-    message = "Something went wrong on our side. No charge was made.";
+    key = "paymentError";
   }
 
-  return message;
+  return key;
 }
 
-export function getAvailabilityMessage(nights: number, maxGuests: number, guests: number) {
+export type AvailabilityMessageKey =
+  | "availabilityMaxGuests"
+  | "availabilityMinimumStay"
+  | "availabilityAvailable";
+
+/**
+ * Both count-sensitive messages are ICU plurals. Resolve with the matching
+ * argument: `t("availabilityMaxGuests", {maxGuests})` /
+ * `t("availabilityMinimumStay", {minimumNights: MINIMUM_STAY_NIGHTS})`.
+ */
+export function getAvailabilityMessage(
+  nights: number,
+  maxGuests: number,
+  guests: number,
+): AvailabilityMessageKey {
   if (guests > maxGuests) {
-    return "This house sleeps " + maxGuests + " guests";
+    return "availabilityMaxGuests";
   }
 
-  if (nights < 3) {
-    return "Minimum stay is 3 nights";
+  if (nights < MINIMUM_STAY_NIGHTS) {
+    return "availabilityMinimumStay";
   }
 
-  return "These dates are available";
+  return "availabilityAvailable";
 }
 
 export function generateBookingReference() {

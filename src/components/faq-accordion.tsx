@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronIcon } from "./icons";
 import { FAQS } from "@/lib/faqs";
 
 export function FaqAccordion() {
+  const t = useTranslations("Faq");
   const [open, setOpen] = useState(0);
 
   return (
@@ -12,7 +14,7 @@ export function FaqAccordion() {
       {FAQS.map((item, index) => {
         const expanded = open === index;
         return (
-          <div key={item.question}>
+          <div key={item.id}>
             <h3>
               <button
                 type="button"
@@ -22,10 +24,10 @@ export function FaqAccordion() {
               >
                 <span>
                   <span className="block text-[12px] font-semibold tracking-wide text-accent uppercase">
-                    {item.category}
+                    {t(item.categoryKey)}
                   </span>
                   <span className="mt-1 block text-[16px] font-semibold text-ink">
-                    {item.question}
+                    {t(item.questionKey)}
                   </span>
                 </span>
                 <ChevronIcon
@@ -39,7 +41,7 @@ export function FaqAccordion() {
             {expanded ? (
               <div className="fade-up px-6 pb-6">
                 <p className="max-w-2xl text-[14.5px] leading-[1.75] text-ink-soft">
-                  {item.answer}
+                  {t(item.answerKey)}
                 </p>
               </div>
             ) : null}

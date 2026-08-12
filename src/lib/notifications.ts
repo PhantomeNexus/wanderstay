@@ -1,50 +1,61 @@
+/**
+ * Structure and message KEYS only — the copy lives in `messages/{locale}.json`.
+ * Resolve inside the component, e.g. `t(TOAST_MESSAGES.tripSaved)`.
+ *
+ * Namespaces: `TOAST_MESSAGES` → `Toasts`; `TRIP_TABS`, `TRIP_ACTIONS` and the
+ * `upcoming` / `past` / `cancelled` empty states → `Trips`. `EMPTY_STATES.noResults`
+ * belongs to the destinations explorer and resolves in that component's namespace.
+ */
+
 export const TOAST_MESSAGES = {
-  tripSaved: "Trip saved to your list",
-  tripRemoved: "Removed from your saved list",
-  changeRequested: "Change request sent to your host",
-  hostMessaged: "Message sent — hosts usually reply within two hours",
-  detailsCopied: "Booking reference copied to your clipboard",
-  reviewReminder: "Thanks — your review has been sent to the host",
-  cancelUnavailable: "This stay is inside the cancellation window. Call a specialist to cancel.",
-  receiptSent: "Receipt on its way to your email",
-  linkShared: "Share link copied",
-};
+  tripSaved: "tripSaved",
+  tripRemoved: "tripRemoved",
+  changeRequested: "changeRequested",
+  hostMessaged: "hostMessaged",
+  detailsCopied: "detailsCopied",
+  reviewReminder: "reviewReminder",
+  cancelUnavailable: "cancelUnavailable",
+  receiptSent: "receiptSent",
+  linkShared: "linkShared",
+} as const;
+
+export type ToastKey = (typeof TOAST_MESSAGES)[keyof typeof TOAST_MESSAGES];
 
 export const EMPTY_STATES = {
   cancelled: {
-    heading: "Nothing cancelled",
-    body: "You have not cancelled a booking with us. If plans change, most stays can be moved instead of cancelled outright.",
-    cta: "Browse destinations",
+    heading: "emptyCancelledHeading",
+    body: "emptyCancelledBody",
+    cta: "emptyCancelledCta",
   },
   upcoming: {
-    heading: "No trips booked yet",
-    body: "When you reserve a house it will show up here with your check-in details and your host's number.",
-    cta: "Find somewhere to go",
+    heading: "emptyUpcomingHeading",
+    body: "emptyUpcomingBody",
+    cta: "emptyUpcomingCta",
   },
   past: {
-    heading: "No past stays",
-    body: "Once you have checked out of a house, it moves here so you can leave a review or book it again.",
-    cta: "Browse destinations",
+    heading: "emptyPastHeading",
+    body: "emptyPastBody",
+    cta: "emptyPastCta",
   },
   noResults: {
-    heading: "No houses match those filters",
-    body: "Try widening the price range or clearing the trip type. There are 48 houses on the list and something will fit.",
-    cta: "Clear all filters",
+    heading: "emptyNoResultsHeading",
+    body: "emptyNoResultsBody",
+    cta: "emptyNoResultsCta",
   },
-};
+} as const;
 
 export const TRIP_TABS = [
-  { id: "upcoming", label: "Upcoming" },
-  { id: "past", label: "Past" },
-  { id: "cancelled", label: "Cancelled" },
-];
+  { id: "upcoming", labelKey: "tabUpcoming" },
+  { id: "past", labelKey: "tabPast" },
+  { id: "cancelled", labelKey: "tabCancelled" },
+] as const;
 
 export const TRIP_ACTIONS = {
-  viewHouse: "View house",
-  requestChange: "Request a change",
-  messageHost: "Message host",
-  copyReference: "Copy reference",
-  leaveReview: "Leave a review",
-  bookAgain: "Book again",
-  downloadReceipt: "Email me a receipt",
-};
+  viewHouse: "actionViewHouse",
+  requestChange: "actionRequestChange",
+  messageHost: "actionMessageHost",
+  copyReference: "actionCopyReference",
+  leaveReview: "actionLeaveReview",
+  bookAgain: "actionBookAgain",
+  downloadReceipt: "actionDownloadReceipt",
+} as const;

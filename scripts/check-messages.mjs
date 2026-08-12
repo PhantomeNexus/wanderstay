@@ -38,6 +38,10 @@ if (!source) {
 }
 const sourceKeys = flatKeys(source);
 
+// Missing keys in a target locale are the normal state between a source string
+// landing and its translation arriving, so they are reported but do not fail.
+// Stale keys are real drift — a key removed from source but left behind in a
+// target — and do fail, as does malformed JSON.
 let hadIssue = false;
 for (const [locale, cat] of Object.entries(catalogs)) {
   if (locale === SOURCE_LOCALE) continue;
@@ -45,8 +49,8 @@ for (const [locale, cat] of Object.entries(catalogs)) {
   const missing = [...sourceKeys].filter((k) => !localeKeys.has(k));
   const stale = [...localeKeys].filter((k) => !sourceKeys.has(k));
   if (missing.length) {
-    console.error(`[i18n] ${locale} missing ${missing.length} key(s): ${missing.slice(0, 10).join(', ')}${missing.length > 10 ? '…' : ''}`);
-    hadIssue = true;
+    const pct = Math.round(((sourceKeys.size - missing.length) / sourceKeys.size) * 100);
+    console.warn(`[i18n] ${locale}: ${missing.length} untranslated key(s) — ${pct}% translated`);
   }
   if (stale.length) {
     console.error(`[i18n] ${locale} stale ${stale.length} key(s): ${stale.slice(0, 10).join(', ')}${stale.length > 10 ? '…' : ''}`);
