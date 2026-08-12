@@ -21,7 +21,8 @@
     "signInTitle": "Connectez-vous à votre compte Wanderstay",
     "startBooking": "Réserver maintenant",
     "menuOpen": "Ouvrir le menu principal",
-    "menuClose": "Fermer le menu principal"
+    "menuClose": "Fermer le menu principal",
+    "wallOfLove": "Mur de l'amour"
   },
   "Footer": {
     "note": "Wanderstay travaille avec un petit nombre d'hôtes indépendants en Europe et en Afrique du Nord. Chaque maison est visitée avant d'être mise en ligne.",
@@ -48,7 +49,8 @@
     "privacy": "Confidentialité",
     "terms": "Conditions",
     "cookies": "Cookies",
-    "copyright": "© 2026 Wanderstay Travel AB. Enregistré à Stockholm, Suède."
+    "copyright": "© 2026 Wanderstay Travel AB. Enregistré à Stockholm, Suède.",
+    "wallOfLove": "Mur de l'amour"
   },
   "Search": {
     "destinationLabel": "Où aller",
@@ -498,5 +500,29 @@
     "body": "La page que vous recherchiez a été déplacée ou n'a jamais existé. {count, plural, one {Il y a # autre maison qui existe définitivement.} many {Il y a # autres maisons qui existent définitivement.} other {Il y a # autres maisons qui existent définitivement.}}",
     "browseDestinationsCta": "Parcourir les destinations",
     "backHomeCta": "Retour à l'accueil"
+  },
+  "WallOfLove": {
+    "metaTitle": "Mur de l'amour",
+    "metaDescription": "Ce que disent les clients après leur séjour — tous les avis de toutes les maisons de la liste Wanderstay, dans leurs propres mots.",
+    "eyebrow": "Mur de l'amour",
+    "heading": "Ce que disent les clients en rentrant chez eux",
+    "intro": "Chaque avis ci-dessous provient de quelqu'un qui a réellement séjourné. <strong>{count, plural, one {# avis} many {# avis} other {# avis}}</strong> dans {houses, plural, one {# maison} many {# maisons} other {# maisons}} — les bons et les nuancés, publiés sans modification.",
+    "statAverageRating": "note moyenne",
+    "statTotalReviews": "avis publiés",
+    "statFiveStar": "séjours cinq étoiles",
+    "statHouses": "maisons évaluées",
+    "regionFilterLabel": "Région",
+    "ratingFilterLabel": "Note",
+    "ratingAny": "Toute note",
+    "ratingFiveOnly": "Cinq étoiles uniquement",
+    "ratingFourPlus": "Quatre étoiles et plus",
+    "resultCount": "Affichage de {count, plural, =0 {aucun avis} one {# avis} many {# avis} other {# avis}}",
+    "clearFilters": "Effacer les filtres",
+    "ratingOutOfFive": "Noté {rating, plural, one {# étoile} many {# étoiles} other {# étoiles}} sur cinq",
+    "emptyHeading": "Aucun avis ne correspond à ces filtres",
+    "emptyBody": "Essayez d'élargir la région ou de réduire la note. Il y a des avis de toutes les maisons de la liste.",
+    "ctaHeading": "Allez en écrire un vous-même",
+    "ctaBody": "Chaque maison de la liste a été visitée par quelqu'un de notre équipe avant sa publication. Choisissez-en une et vérifiez si nous avons bien fait.",
+    "ctaAction": "Parcourir les destinations"
   }
 }
