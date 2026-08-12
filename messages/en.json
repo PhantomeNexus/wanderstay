@@ -21,7 +21,8 @@
     "signInTitle": "Sign in to your Wanderstay account",
     "startBooking": "Book now",
     "menuOpen": "Open the main menu",
-    "menuClose": "Close the main menu"
+    "menuClose": "Close the main menu",
+    "wallOfLove": "Wall of Love"
   },
   "Footer": {
     "note": "Wanderstay works with a small number of independent hosts across Europe and North Africa. Every house is visited before it is listed.",
@@ -48,7 +49,8 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "cookies": "Cookies",
-    "copyright": "© 2026 Wanderstay Travel AB. Registered in Stockholm, Sweden."
+    "copyright": "© 2026 Wanderstay Travel AB. Registered in Stockholm, Sweden.",
+    "wallOfLove": "Wall of love"
   },
   "Search": {
     "destinationLabel": "Where to",
@@ -498,5 +500,29 @@
     "body": "The page you were looking for has moved or never existed. {count, plural, one {There is # other house that definitely does.} other {There are # other houses that definitely do.}}",
     "browseDestinationsCta": "Browse destinations",
     "backHomeCta": "Back to home"
+  },
+  "WallOfLove": {
+    "metaTitle": "Wall of Love",
+    "metaDescription": "What guests say after staying — every review from every house on the Wanderstay list, in their own words.",
+    "eyebrow": "Wall of love",
+    "heading": "What guests say when they get home",
+    "intro": "Every review below is from someone who actually stayed. <strong>{count, plural, one {# review} other {# reviews}}</strong> across {houses, plural, one {# house} other {# houses}} — the good and the qualified, published unedited.",
+    "statAverageRating": "average rating",
+    "statTotalReviews": "reviews published",
+    "statFiveStar": "five-star stays",
+    "statHouses": "houses reviewed",
+    "regionFilterLabel": "Region",
+    "ratingFilterLabel": "Rating",
+    "ratingAny": "Any rating",
+    "ratingFiveOnly": "Five stars only",
+    "ratingFourPlus": "Four stars and up",
+    "resultCount": "Showing {count, plural, =0 {no reviews} one {# review} other {# reviews}}",
+    "clearFilters": "Clear filters",
+    "ratingOutOfFive": "Rated {rating, plural, one {# star} other {# stars}} out of five",
+    "emptyHeading": "No reviews match those filters",
+    "emptyBody": "Try widening the region or lowering the rating. There are reviews from every house on the list.",
+    "ctaHeading": "Go and write one of your own",
+    "ctaBody": "Every house on the list has been stayed in by someone on our team before it went up. Pick one and see whether we got it right.",
+    "ctaAction": "Browse destinations"
   }
 }

@@ -12,6 +12,7 @@ export const SITE_TAGLINE_KEY = "tagline";
 /** Keys in the `Nav` namespace. */
 export const NAV_ITEMS = [
   { key: "destinations", href: "/destinations" },
+  { key: "wallOfLove", href: "/wall-of-love" },
   { key: "trips", href: "/trips" },
   { key: "about", href: "/about" },
   { key: "faq", href: "/faq" },
@@ -28,6 +29,7 @@ export const FOOTER_COLUMNS = [
       { key: "mountainRetreats", href: "/destinations" },
       { key: "designStays", href: "/destinations" },
       { key: "offGridCabins", href: "/destinations" },
+      { key: "wallOfLove", href: "/wall-of-love" },
     ],
   },
   {
