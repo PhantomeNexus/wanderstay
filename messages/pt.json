@@ -21,7 +21,8 @@
     "signInTitle": "Entre na sua conta Wanderstay",
     "startBooking": "Reservar agora",
     "menuOpen": "Abrir o menu principal",
-    "menuClose": "Fechar o menu principal"
+    "menuClose": "Fechar o menu principal",
+    "wallOfLove": "Mural de Amor"
   },
   "Footer": {
     "note": "Wanderstay trabalha com um pequeno número de anfitriões independentes em toda a Europa e Norte da África. Cada casa é visitada antes de ser listada.",
@@ -33,7 +34,7 @@
     "offGridCabins": "Cabanas off-grid",
     "companyHeading": "Empresa",
     "aboutUs": "Sobre nós",
-    "howWeChooseHouses": "Como escolhemos as casas",
+    "howWeChooseHouses": "Como escolhemos casas",
     "careers": "Carreiras",
     "press": "Imprensa",
     "supportHeading": "Suporte",
@@ -48,7 +49,8 @@
     "privacy": "Privacidade",
     "terms": "Termos",
     "cookies": "Cookies",
-    "copyright": "© 2026 Wanderstay Travel AB. Registrada em Estocolmo, Suécia."
+    "copyright": "© 2026 Wanderstay Travel AB. Registrada em Estocolmo, Suécia.",
+    "wallOfLove": "Mural de amor"
   },
   "Search": {
     "destinationLabel": "Para onde",
@@ -350,10 +352,10 @@
     "emptyUpcomingCta": "Encontre um lugar para ir",
     "emptyPastHeading": "Nenhuma estadia anterior",
     "emptyPastBody": "Depois de fazer check-out de uma casa, ela se move para aqui para que você possa deixar uma avaliação ou reservá-la novamente.",
-    "emptyPastCta": "Navegue pelos destinos",
+    "emptyPastCta": "Explorar destinos",
     "emptyCancelledHeading": "Nada cancelado",
     "emptyCancelledBody": "Você não cancelou uma reserva conosco. Se os planos mudarem, a maioria das estadias pode ser alterada em vez de cancelada completamente.",
-    "emptyCancelledCta": "Navegue pelos destinos",
+    "emptyCancelledCta": "Explorar destinos",
     "actionViewHouse": "Ver casa",
     "actionRequestChange": "Solicitar uma alteração",
     "actionMessageHost": "Mensagem para o anfitrião",
@@ -498,5 +500,29 @@
     "body": "A página que você procurava foi movida ou nunca existiu. {count, plural, one {Há # outra casa que definitivamente existe.} many {Há # outras casas que definitivamente existem.} other {Há # outras casas que definitivamente existem.}}",
     "browseDestinationsCta": "Explorar destinos",
     "backHomeCta": "Voltar para a página inicial"
+  },
+  "WallOfLove": {
+    "metaTitle": "Mural de Amor",
+    "metaDescription": "O que os hóspedes dizem após sua estadia — todas as avaliações de todas as casas da lista Wanderstay, com suas próprias palavras.",
+    "eyebrow": "Mural de amor",
+    "heading": "O que os hóspedes dizem quando chegam em casa",
+    "intro": "Cada avaliação abaixo é de alguém que realmente ficou hospedado. <strong>{count, plural, one {# avaliação} many {# avaliações} other {# avaliações}}</strong> em {houses, plural, one {# casa} many {# casas} other {# casas}} — o bom e o qualificado, publicado sem edição.",
+    "statAverageRating": "classificação média",
+    "statTotalReviews": "avaliações publicadas",
+    "statFiveStar": "estadias com cinco estrelas",
+    "statHouses": "casas avaliadas",
+    "regionFilterLabel": "Região",
+    "ratingFilterLabel": "Classificação",
+    "ratingAny": "Qualquer classificação",
+    "ratingFiveOnly": "Apenas cinco estrelas",
+    "ratingFourPlus": "Quatro estrelas ou mais",
+    "resultCount": "Exibindo {count, plural, =0 {nenhuma avaliação} one {# avaliação} many {# avaliações} other {# avaliações}}",
+    "clearFilters": "Limpar filtros",
+    "ratingOutOfFive": "Classificado com {rating, plural, one {# estrela} many {# estrelas} other {# estrelas}} de cinco",
+    "emptyHeading": "Nenhuma avaliação corresponde a esses filtros",
+    "emptyBody": "Tente expandir a região ou reduzir a classificação. Há avaliações de todas as casas da lista.",
+    "ctaHeading": "Vá e escreva uma sua",
+    "ctaBody": "Todas as casas da lista foram visitadas por alguém do nosso time antes de serem publicadas. Escolha uma e veja se acertamos.",
+    "ctaAction": "Explorar destinos"
   }
 }

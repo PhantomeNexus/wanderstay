@@ -21,7 +21,8 @@
     "signInTitle": "Accedi al tuo account Wanderstay",
     "startBooking": "Prenota ora",
     "menuOpen": "Apri il menu principale",
-    "menuClose": "Chiudi il menu principale"
+    "menuClose": "Chiudi il menu principale",
+    "wallOfLove": "Muro dell'Amore"
   },
   "Footer": {
     "note": "Wanderstay collabora con un piccolo numero di host indipendenti in tutta Europa e Nord Africa. Ogni casa viene visitata prima di essere inserita in elenco.",
@@ -48,7 +49,8 @@
     "privacy": "Privacy",
     "terms": "Termini",
     "cookies": "Cookie",
-    "copyright": "© 2026 Wanderstay Travel AB. Registrata a Stoccolma, Svezia."
+    "copyright": "© 2026 Wanderstay Travel AB. Registrata a Stoccolma, Svezia.",
+    "wallOfLove": "Muro dell'amore"
   },
   "Search": {
     "destinationLabel": "Dove andare",
@@ -350,10 +352,10 @@
     "emptyUpcomingCta": "Trova un posto dove andare",
     "emptyPastHeading": "Nessun soggiorno passato",
     "emptyPastBody": "Una volta che hai fatto il check-out da una casa, si sposta qui in modo che tu possa lasciare una recensione o prenotarla di nuovo.",
-    "emptyPastCta": "Sfoglia destinazioni",
+    "emptyPastCta": "Sfoglia le destinazioni",
     "emptyCancelledHeading": "Nulla cancellato",
     "emptyCancelledBody": "Non hai cancellato una prenotazione con noi. Se i piani cambiano, la maggior parte dei soggiorni può essere spostata invece di essere cancellata completamente.",
-    "emptyCancelledCta": "Sfoglia destinazioni",
+    "emptyCancelledCta": "Sfoglia le destinazioni",
     "actionViewHouse": "Visualizza casa",
     "actionRequestChange": "Richiedi una modifica",
     "actionMessageHost": "Messaggio all'host",
@@ -498,5 +500,29 @@
     "body": "La pagina che stavi cercando si è spostata o non è mai esistita. {count, plural, one {C'è # altra casa che sicuramente esiste.} many {Ci sono # altre case che sicuramente esistono.} other {Ci sono # altre case che sicuramente esistono.}}",
     "browseDestinationsCta": "Sfoglia le destinazioni",
     "backHomeCta": "Torna alla home"
+  },
+  "WallOfLove": {
+    "metaTitle": "Muro dell'Amore",
+    "metaDescription": "Cosa dicono gli ospiti dopo il soggiorno — ogni recensione da ogni casa nella lista Wanderstay, con le loro parole.",
+    "eyebrow": "Muro dell'amore",
+    "heading": "Cosa dicono gli ospiti quando tornano a casa",
+    "intro": "Ogni recensione qui sotto è di qualcuno che ha effettivamente soggiornato. <strong>{count, plural, one {# recensione} many {# recensioni} other {# recensioni}}</strong> in {houses, plural, one {# casa} many {# case} other {# case}} — il bello e il costruttivo, pubblicato senza modifiche.",
+    "statAverageRating": "valutazione media",
+    "statTotalReviews": "recensioni pubblicate",
+    "statFiveStar": "soggiorni a cinque stelle",
+    "statHouses": "case recensite",
+    "regionFilterLabel": "Regione",
+    "ratingFilterLabel": "Valutazione",
+    "ratingAny": "Qualsiasi valutazione",
+    "ratingFiveOnly": "Solo cinque stelle",
+    "ratingFourPlus": "Quattro stelle e più",
+    "resultCount": "Visualizzazione {count, plural, =0 {nessuna recensione} one {# recensione} many {# recensioni} other {# recensioni}}",
+    "clearFilters": "Cancella filtri",
+    "ratingOutOfFive": "Valutato {rating, plural, one {# stella} many {# stelle} other {# stelle}} su cinque",
+    "emptyHeading": "Nessuna recensione corrisponde a questi filtri",
+    "emptyBody": "Prova ad ampliare la regione o abbassare la valutazione. Ci sono recensioni da ogni casa nella lista.",
+    "ctaHeading": "Scrivi una tua recensione",
+    "ctaBody": "Ogni casa nella lista è stata visitata da qualcuno del nostro team prima di essere pubblicata. Scegline una e verifica se abbiamo fatto bene.",
+    "ctaAction": "Sfoglia le destinazioni"
   }
 }

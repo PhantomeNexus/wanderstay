@@ -21,7 +21,8 @@
     "signInTitle": "تسجيل الدخول إلى حسابك في Wanderstay",
     "startBooking": "احجز الآن",
     "menuOpen": "فتح القائمة الرئيسية",
-    "menuClose": "إغلاق القائمة الرئيسية"
+    "menuClose": "إغلاق القائمة الرئيسية",
+    "wallOfLove": "جدار الحب"
   },
   "Footer": {
     "note": "تعمل Wanderstay مع عدد صغير من المضيفين المستقلين في جميع أنحاء أوروبا وشمال أفريقيا. يتم زيارة كل منزل قبل إدراجه.",
@@ -48,7 +49,8 @@
     "privacy": "الخصوصية",
     "terms": "الشروط",
     "cookies": "ملفات تعريف الارتباط",
-    "copyright": "© 2026 Wanderstay Travel AB. مسجلة في ستوكهولم، السويد."
+    "copyright": "© 2026 Wanderstay Travel AB. مسجلة في ستوكهولم، السويد.",
+    "wallOfLove": "جدار الحب"
   },
   "Search": {
     "destinationLabel": "إلى أين",
@@ -350,10 +352,10 @@
     "emptyUpcomingCta": "ابحث عن مكان للذهاب إليه",
     "emptyPastHeading": "لا توجد إقامات سابقة",
     "emptyPastBody": "بمجرد تسجيل خروجك من منزل، ينتقل هنا حتى تتمكن من ترك تقييم أو حجزه مرة أخرى.",
-    "emptyPastCta": "استعرض الوجهات",
+    "emptyPastCta": "استكشف الوجهات",
     "emptyCancelledHeading": "لا شيء ملغى",
     "emptyCancelledBody": "لم تلغِ حجزاً معنا. إذا تغيرت الخطط، يمكن نقل معظم الإقامات بدلاً من إلغاؤها تماماً.",
-    "emptyCancelledCta": "استعرض الوجهات",
+    "emptyCancelledCta": "استكشف الوجهات",
     "actionViewHouse": "عرض المنزل",
     "actionRequestChange": "طلب تغيير",
     "actionMessageHost": "راسل المضيف",
@@ -498,5 +500,29 @@
     "body": "الصفحة التي كنت تبحث عنها قد انتقلت أو لم تكن موجودة من قبل. {count, plural, zero {لا توجد منازل أخرى بالتأكيد.} one {هناك # منزل آخر بالتأكيد.} two {هناك # منزلان آخران بالتأكيد.} few {هناك # منازل أخرى بالتأكيد.} many {هناك # منزلاً آخر بالتأكيد.} other {هناك # منزل آخر بالتأكيد.}}",
     "browseDestinationsCta": "استكشف الوجهات",
     "backHomeCta": "العودة إلى الصفحة الرئيسية"
+  },
+  "WallOfLove": {
+    "metaTitle": "جدار الحب",
+    "metaDescription": "ما يقوله الضيوف بعد إقامتهم — كل تقييم من كل منزل في قائمة Wanderstay، بكلماتهم الخاصة.",
+    "eyebrow": "جدار الحب",
+    "heading": "ما يقوله الضيوف عندما يعودون إلى منازلهم",
+    "intro": "كل تقييم أدناه من شخص أقام فعلاً. <strong>{count, plural, zero {# تقييم} one {# تقييم} two {# تقييمان} few {# تقييمات} many {# تقييماً} other {# تقييم}}</strong> عبر {houses, plural, zero {# منزل} one {# منزل} two {# منزلان} few {# منازل} many {# منزلاً} other {# منزل}} — الإيجابي والمؤهل، منشور بدون تعديل.",
+    "statAverageRating": "متوسط التقييم",
+    "statTotalReviews": "التقييمات المنشورة",
+    "statFiveStar": "الإقامات بخمس نجوم",
+    "statHouses": "المنازل المقيّمة",
+    "regionFilterLabel": "المنطقة",
+    "ratingFilterLabel": "التقييم",
+    "ratingAny": "أي تقييم",
+    "ratingFiveOnly": "خمس نجوم فقط",
+    "ratingFourPlus": "أربع نجوم فما فوق",
+    "resultCount": "عرض {count, plural, zero {لا توجد تقييمات} one {# تقييم} two {# تقييمان} few {# تقييمات} many {# تقييماً} other {# تقييم}}",
+    "clearFilters": "مسح المرشحات",
+    "ratingOutOfFive": "تقييم {rating, plural, zero {# نجم} one {# نجم} two {# نجمان} few {# نجوم} many {# نجماً} other {# نجم}} من أصل خمسة",
+    "emptyHeading": "لا توجد تقييمات تطابق هذه المرشحات",
+    "emptyBody": "حاول توسيع المنطقة أو خفض التقييم. هناك تقييمات من كل منزل في القائمة.",
+    "ctaHeading": "اذهب واكتب واحداً بنفسك",
+    "ctaBody": "كل منزل في القائمة قد أقام فيه أحد أعضاء فريقنا قبل نشره. اختر واحداً وتحقق مما إذا كنا محقين.",
+    "ctaAction": "استكشف الوجهات"
   }
 }

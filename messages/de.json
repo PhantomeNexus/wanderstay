@@ -21,7 +21,8 @@
     "signInTitle": "Melden Sie sich bei Ihrem Wanderstay-Konto an",
     "startBooking": "Jetzt buchen",
     "menuOpen": "Hauptmenü öffnen",
-    "menuClose": "Hauptmenü schließen"
+    "menuClose": "Hauptmenü schließen",
+    "wallOfLove": "Wall of Love"
   },
   "Footer": {
     "note": "Wanderstay arbeitet mit einer kleinen Anzahl unabhängiger Gastgeber in Europa und Nordafrika zusammen. Jedes Haus wird vor der Auflistung besucht.",
@@ -48,13 +49,14 @@
     "privacy": "Datenschutz",
     "terms": "Bedingungen",
     "cookies": "Cookies",
-    "copyright": "© 2026 Wanderstay Travel AB. Registriert in Stockholm, Schweden."
+    "copyright": "© 2026 Wanderstay Travel AB. Registriert in Stockholm, Schweden.",
+    "wallOfLove": "Wall of Love"
   },
   "Search": {
     "destinationLabel": "Wohin",
     "destinationPlaceholder": "Überall in Europa",
     "destinationFieldLabel": "Nach Ziel oder Hausname suchen",
-    "checkInLabel": "Anreise",
+    "checkInLabel": "Ankunft",
     "checkInFieldLabel": "Anreisedatum",
     "checkOutLabel": "Abreise",
     "checkOutFieldLabel": "Abreisedatum",
@@ -94,7 +96,7 @@
     "onePriceBody": "Die Nummer, die Sie beim Checkout sehen, ist die Nummer, die Sie zahlen. Reinigung und Service sind von vornherein aufgeschlüsselt, und es gibt keine Resortgebühren an der Tür.",
     "hostsReplyTitle": "Gastgeber, die antworten",
     "hostsReplyBody": "Unsere Gastgeber antworten im Durchschnitt in weniger als zwei Stunden. Die meisten von ihnen wohnen in Gehweite und werden Sie mit den Schlüsseln selbst abholen.",
-    "specialistsTitle": "Spezialisten erreichbar",
+    "specialistsTitle": "Spezialisten im Dienst",
     "specialistsBody": "Ein Reisespezialist ist sieben Tage die Woche erreichbar, um Termine zu verschieben, Transfers zu arrangieren oder Ihnen einen Tisch zu finden, der online vollständig gebucht ist."
   },
   "Testimonials": {
@@ -184,7 +186,7 @@
   },
   "Booking": {
     "pricePerNight": "<amount>{price}</amount> pro Nacht",
-    "checkInLabel": "Anreise",
+    "checkInLabel": "Ankunft",
     "checkOutLabel": "Abreise",
     "checkInDateAria": "Anreisedatum",
     "checkOutDateAria": "Abreisedatum",
@@ -197,8 +199,8 @@
     "nightlyRateSubtotal": "{price} × {nights, plural, one {# Nacht} other {# Nächte}}",
     "cleaningFee": "Reinigungsgebühr",
     "serviceFee": "Wanderstay-Servicegebühr",
-    "occupancyTax": "Kurtaxe",
-    "totalDue": "Gesamt",
+    "occupancyTax": "Übernachtungssteuer",
+    "totalDue": "Gesamtbetrag",
     "freeCancellation": "Kostenlose Stornierung bis 14 Tage vor Anreise"
   },
   "Gallery": {
@@ -350,10 +352,10 @@
     "emptyUpcomingCta": "Einen Ort zum Übernachten finden",
     "emptyPastHeading": "Keine vergangenen Aufenthalte",
     "emptyPastBody": "Sobald Sie ein Haus verlassen haben, wird es hier angezeigt, damit Sie eine Bewertung hinterlassen oder es erneut buchen können.",
-    "emptyPastCta": "Reiseziele durchsuchen",
+    "emptyPastCta": "Destinationen entdecken",
     "emptyCancelledHeading": "Nichts storniert",
     "emptyCancelledBody": "Sie haben keine Buchung bei uns storniert. Wenn sich Ihre Pläne ändern, können die meisten Aufenthalte verschoben statt storniert werden.",
-    "emptyCancelledCta": "Reiseziele durchsuchen",
+    "emptyCancelledCta": "Destinationen entdecken",
     "actionViewHouse": "Haus anzeigen",
     "actionRequestChange": "Änderung anfordern",
     "actionMessageHost": "Gastgeber kontaktieren",
@@ -498,5 +500,29 @@
     "body": "Die gesuchte Seite wurde verschoben oder existiert nicht. {count, plural, one {Es gibt # anderes Haus, das definitiv passt.} other {Es gibt # andere Häuser, die definitiv passen.}}",
     "browseDestinationsCta": "Destinationen entdecken",
     "backHomeCta": "Zurück zur Startseite"
+  },
+  "WallOfLove": {
+    "metaTitle": "Wall of Love",
+    "metaDescription": "Was Gäste nach ihrem Aufenthalt sagen – jede Bewertung von jedem Haus auf der Wanderstay-Liste, in ihren eigenen Worten.",
+    "eyebrow": "Wall of Love",
+    "heading": "Was Gäste sagen, wenn sie nach Hause kommen",
+    "intro": "Jede Bewertung unten stammt von jemandem, der tatsächlich übernachtet hat. <strong>{count, plural, one {# Bewertung} other {# Bewertungen}}</strong> über {houses, plural, one {# Haus} other {# Häuser}} – das Gute und das Qualifizierte, unbearbeitet veröffentlicht.",
+    "statAverageRating": "durchschnittliche Bewertung",
+    "statTotalReviews": "veröffentlichte Bewertungen",
+    "statFiveStar": "Fünf-Sterne-Aufenthalte",
+    "statHouses": "bewertete Häuser",
+    "regionFilterLabel": "Region",
+    "ratingFilterLabel": "Bewertung",
+    "ratingAny": "Beliebige Bewertung",
+    "ratingFiveOnly": "Nur fünf Sterne",
+    "ratingFourPlus": "Vier Sterne und höher",
+    "resultCount": "{count, plural, =0 {keine Bewertungen} one {# Bewertung} other {# Bewertungen}}",
+    "clearFilters": "Filter löschen",
+    "ratingOutOfFive": "Mit {rating, plural, one {# Stern} other {# Sternen}} von fünf bewertet",
+    "emptyHeading": "Keine Bewertungen entsprechen diesen Filtern",
+    "emptyBody": "Versuchen Sie, die Region zu erweitern oder die Bewertung zu senken. Es gibt Bewertungen von jedem Haus auf der Liste.",
+    "ctaHeading": "Schreiben Sie selbst eine Bewertung",
+    "ctaBody": "Jedes Haus auf der Liste wurde vor der Veröffentlichung von jemandem aus unserem Team getestet. Wählen Sie eines aus und sehen Sie, ob wir recht hatten.",
+    "ctaAction": "Destinationen entdecken"
   }
 }
