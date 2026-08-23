@@ -201,7 +201,7 @@
     "serviceFee": "Wanderstay service fee",
     "occupancyTax": "Occupancy tax",
     "totalDue": "Total",
-    "freeCancellation": "Free cancellation until 14 days before check-in"
+    "freeCancellation": "Free cancellation up to 48 hours after booking"
   },
   "Gallery": {
     "photoPosition": "{current} of {total}",
@@ -524,5 +524,16 @@
     "ctaHeading": "Go and write one of your own",
     "ctaBody": "Every house on the list has been stayed in by someone on our team before it went up. Pick one and see whether we got it right.",
     "ctaAction": "Browse destinations"
+  },
+  "TravelProtection": {
+    "heading": "Travel with peace of mind",
+    "description": "Add trip protection and cancel for any reason up to 24 hours before check-in.",
+    "benefitRefund": "Full refund if your plans change",
+    "benefitAssistance": "24/7 emergency assistance while you travel",
+    "benefitCoverage": "Covers delays, lost luggage and medical costs",
+    "priceLine": "{perDay}/day · {total} for {nights, plural, one {# night} other {# nights}}",
+    "addCta": "Add protection",
+    "addedCta": "Added to your trip",
+    "removeNote": "You can remove protection any time before payment."
   }
 }
