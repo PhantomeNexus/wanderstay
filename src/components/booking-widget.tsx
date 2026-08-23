@@ -142,6 +142,9 @@ export function BookingWidget({ destination }: BookingWidgetProps) {
       </button>
 
       <p className="mt-3 text-center text-[13px] text-muted">{t("noChargeYet")}</p>
+      <p className="mt-1 text-center text-[12.5px] text-faint">
+        Free cancellation up to 48 hours after booking
+      </p>
 
       <dl className="mt-6 space-y-3 border-t border-line pt-6 text-[14px]">
         <div className="flex items-center justify-between">

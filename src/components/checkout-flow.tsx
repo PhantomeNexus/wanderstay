@@ -9,6 +9,7 @@ import { guestDetailsConfig, orderSummaryConfig, paymentConfig } from "@/lib/for
 import { buildPriceBreakdown, generateBookingReference } from "@/lib/booking";
 import { formatLongDate, formatPrice } from "@/lib/format";
 import { currentUser } from "@/lib/user";
+import { TravelProtection } from "./travel-protection";
 import type { Destination } from "@/lib/types";
 
 interface CheckoutFlowProps {
@@ -472,6 +473,8 @@ export function CheckoutFlow({ destination, checkIn, checkOut, guests }: Checkou
             </p>
           </div>
         </div>
+
+        <TravelProtection nights={breakdown.nights} />
       </aside>
     </div>
   );
