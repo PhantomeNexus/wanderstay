@@ -201,7 +201,7 @@
     "serviceFee": "Wanderstay-Servicegebühr",
     "occupancyTax": "Übernachtungssteuer",
     "totalDue": "Gesamtbetrag",
-    "freeCancellation": "Kostenlose Stornierung bis 14 Tage vor Anreise"
+    "freeCancellation": "Kostenlose Stornierung bis 48 Stunden nach der Buchung"
   },
   "Gallery": {
     "photoPosition": "{current} von {total}",
@@ -524,5 +524,16 @@
     "ctaHeading": "Schreiben Sie selbst eine Bewertung",
     "ctaBody": "Jedes Haus auf der Liste wurde vor der Veröffentlichung von jemandem aus unserem Team getestet. Wählen Sie eines aus und sehen Sie, ob wir recht hatten.",
     "ctaAction": "Destinationen entdecken"
+  },
+  "TravelProtection": {
+    "heading": "Reisen Sie beruhigt",
+    "description": "Fügen Sie Reiseschutz hinzu und stornieren Sie aus beliebigem Grund bis 24 Stunden vor dem Check-in.",
+    "benefitRefund": "Vollständige Rückerstattung, wenn sich Ihre Pläne ändern",
+    "benefitAssistance": "24/7-Notfallhilfe während Ihrer Reise",
+    "benefitCoverage": "Deckt Verspätungen, verlorenes Gepäck und medizinische Kosten ab",
+    "priceLine": "{perDay}/Tag · {total} für {nights, plural, one {# Nacht} other {# Nächte}}",
+    "addCta": "Schutz hinzufügen",
+    "addedCta": "Zu Ihrer Reise hinzugefügt",
+    "removeNote": "Sie können den Schutz jederzeit vor der Zahlung entfernen."
   }
 }

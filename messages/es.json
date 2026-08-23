@@ -201,7 +201,7 @@
     "serviceFee": "Tarifa de servicio de Wanderstay",
     "occupancyTax": "Impuesto de ocupación",
     "totalDue": "Total",
-    "freeCancellation": "Cancelación gratuita hasta 14 días antes de la entrada"
+    "freeCancellation": "Cancelación gratuita hasta 48 horas después de la reserva"
   },
   "Gallery": {
     "photoPosition": "{current} de {total}",
@@ -524,5 +524,16 @@
     "ctaHeading": "Ve y escribe una propia",
     "ctaBody": "Cada casa en la lista ha sido visitada por alguien de nuestro equipo antes de publicarla. Elige una y comprueba si acertamos.",
     "ctaAction": "Explora destinos"
+  },
+  "TravelProtection": {
+    "heading": "Viaja con tranquilidad",
+    "description": "Añade protección de viaje y cancela por cualquier motivo hasta 24 horas antes del check-in.",
+    "benefitRefund": "Reembolso completo si tus planes cambian",
+    "benefitAssistance": "Asistencia de emergencia 24/7 mientras viajas",
+    "benefitCoverage": "Cubre retrasos, equipaje perdido y gastos médicos",
+    "priceLine": "{perDay}/día · {total} por {nights, plural, one {# noche} many {# noches} other {# noches}}",
+    "addCta": "Añadir protección",
+    "addedCta": "Añadido a tu viaje",
+    "removeNote": "Puedes eliminar la protección en cualquier momento antes del pago."
   }
 }
